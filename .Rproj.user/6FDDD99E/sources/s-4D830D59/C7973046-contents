@@ -1,7 +1,0 @@
-old_prefs <- as.list(letters) %>% setNames(letters)
-new_prefs <- list(a = "AAA", g = "G")
-
-pretty_print_updates(old_prefs, new_prefs)
-
-
-use_rstudio_prefs(always_save_history = TRUE)
