@@ -118,7 +118,7 @@ modified are listed here
 https://docs.rstudio.com/ide/server-pro/session-user-settings.html</p>
     </div>
 
-    <pre class="usage"><span class='fu'>use_rstudio_prefs</span><span class='op'>(</span><span class='va'>...</span>, write_json <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>use_rstudio_prefs</span><span class='op'>(</span><span class='va'>...</span>, .write_json <span class='op'>=</span> <span class='cn'>TRUE</span>, .backup <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -129,11 +129,16 @@ https://docs.rstudio.com/ide/server-pro/session-user-settings.html</p>
 <code>always_save_history = FALSE, rainbow_parentheses = TRUE</code></p></td>
     </tr>
     <tr>
-      <th>write_json</th>
-      <td><p>logical indicating whether to udpate and overwrite
+      <th>.write_json</th>
+      <td><p>logical indicating whether to update and overwrite
 the existing JSON file of options. Default is <code>TRUE</code>. When <code>FALSE</code>,
 the function will return a list of all options, instead of writing
 them to file.</p></td>
+    </tr>
+    <tr>
+      <th>.backup</th>
+      <td><p>Logical indicating whether to create a back-up of preferences
+file before it's updated. Default is <code>TRUE</code></p></td>
     </tr>
     </table>
 

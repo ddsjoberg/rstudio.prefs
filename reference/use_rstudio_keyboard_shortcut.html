@@ -114,7 +114,7 @@ the addins.json file." />
 the <code>addins.json</code> file.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>use_rstudio_keyboard_shortcut</span><span class='op'>(</span><span class='va'>...</span>, write_json <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>use_rstudio_keyboard_shortcut</span><span class='op'>(</span><span class='va'>...</span>, .write_json <span class='op'>=</span> <span class='cn'>TRUE</span>, .backup <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -124,11 +124,16 @@ the <code>addins.json</code> file.</p>
       <td><p>series of RStudio keyboard shortcuts to update</p></td>
     </tr>
     <tr>
-      <th>write_json</th>
-      <td><p>logical indicating whether to udpate and overwrite
+      <th>.write_json</th>
+      <td><p>logical indicating whether to update and overwrite
 the existing JSON file of options. Default is <code>TRUE</code>. When <code>FALSE</code>,
 the function will return a list of all options, instead of writing
 them to file.</p></td>
+    </tr>
+    <tr>
+      <th>.backup</th>
+      <td><p>Logical indicating whether to create a back-up of preferences
+file before it's updated. Default is <code>TRUE</code></p></td>
     </tr>
     </table>
 
@@ -136,6 +141,13 @@ them to file.</p></td>
 
     <p>Daniel D. Sjoberg</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>use_rstudio_keyboard_shortcut</span><span class='op'>(</span>
+  `mskRutils::make_path_norm` <span class='op'>=</span> <span class='st'>"Ctrl+Shift+/"</span>
+<span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

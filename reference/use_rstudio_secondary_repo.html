@@ -118,7 +118,7 @@ passed my the user. If a new name for an existing repository is
 passed by the user, the name will be updated in the JSON file.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>use_rstudio_secondary_repo</span><span class='op'>(</span><span class='va'>...</span>, write_json <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>use_rstudio_secondary_repo</span><span class='op'>(</span><span class='va'>...</span>, .write_json <span class='op'>=</span> <span class='cn'>TRUE</span>, .backup <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -129,11 +129,16 @@ passed by the user, the name will be updated in the JSON file.</p>
 <code>ropensci = "https://ropensci.r-universe.dev"</code></p></td>
     </tr>
     <tr>
-      <th>write_json</th>
-      <td><p>logical indicating whether to udpate and overwrite
+      <th>.write_json</th>
+      <td><p>logical indicating whether to update and overwrite
 the existing JSON file of options. Default is <code>TRUE</code>. When <code>FALSE</code>,
 the function will return a list of all options, instead of writing
 them to file.</p></td>
+    </tr>
+    <tr>
+      <th>.backup</th>
+      <td><p>Logical indicating whether to create a back-up of preferences
+file before it's updated. Default is <code>TRUE</code></p></td>
     </tr>
     </table>
 
