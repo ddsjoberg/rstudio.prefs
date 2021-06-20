@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • rstudio.prefs</title>
+<title>Set RStudio Preferences — use_rstudio_prefs • rstudio.prefs</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,11 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Set RStudio Preferences — use_rstudio_prefs" />
+<meta property="og:description" content="This function updates the RStudio preferences saved in
+the rstudio-prefs.json file. A full listing of preferences that may be
+modified are listed here
+https://docs.rstudio.com/ide/server-pro/session-user-settings.html" />
 
 
 
@@ -58,7 +62,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -100,48 +104,50 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Set RStudio Preferences</h1>
+    
+    <div class="hidden name"><code>use_rstudio_prefs.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>This function updates the RStudio preferences saved in
+the <code>rstudio-prefs.json</code> file. A full listing of preferences that may be
+modified are listed here
+https://docs.rstudio.com/ide/server-pro/session-user-settings.html</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>use_rstudio_prefs</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="fetch_rstudio_settings_table.html">fetch_rstudio_settings_table()</a></code> </p>
-        </td>
-        <td><p>Fetch table of RStudio Settings</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="use_rstudio_prefs.html">use_rstudio_prefs()</a></code> </p>
-        </td>
-        <td><p>Set RStudio Preferences</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>series of RStudio preferences to update, e.g.
+<code>always_save_history = FALSE, rainbow_parentheses = TRUE</code></p></td>
+    </tr>
     </table>
-  </div>
 
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+<span class='co'># pass preferences individually --------------</span>
+<span class='fu'>use_rstudio_prefs</span><span class='op'>(</span>
+  always_save_history <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  rainbow_parentheses <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error: RStudio not running</span></div><div class='input'>
+<span class='co'># pass a list of preferences -----------------</span>
+<span class='va'>pref_list</span> <span class='op'>&lt;-</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>always_save_history <span class='op'>=</span> <span class='cn'>FALSE</span>,
+       rainbow_parentheses <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='fu'>use_rstudio_prefs</span><span class='op'>(</span><span class='op'>!</span><span class='op'>!</span><span class='op'>!</span><span class='va'>pref_list</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error: RStudio not running</span></div><div class='input'><span class='co'># }</span>
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
