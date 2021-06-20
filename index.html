@@ -79,10 +79,10 @@
 <code class="sourceCode R"><span class="co"># instal.packages('devtools')</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ddsjoberg/rstudio.prefs"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="example" class="section level2">
+<div id="examples" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
-<p>Update the RStudio default preferences.</p>
+<a href="#examples" class="anchor"></a>Examples</h2>
+<p>Update the RStudio default preferences. Full list of modifiable settings here: <a href="https://docs.rstudio.com/ide/server-pro/session-user-settings.html" class="uri">https://docs.rstudio.com/ide/server-pro/session-user-settings.html</a></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">rstudio.prefs</span><span class="op">)</span>
 
@@ -99,9 +99,7 @@
 <span class="co">#&gt; * Restart RStudio for updates to take effect.</span></code></pre></div>
 <p>Add a secondary repository to the ROpenSci R-Universe</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/use_rstudio_secondary_repo.html">use_rstudio_secondary_repo</a></span><span class="op">(</span>
-  ropensci <span class="op">=</span> <span class="st">"https://ropensci.r-universe.dev"</span>
-<span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="reference/use_rstudio_secondary_repo.html">use_rstudio_secondary_repo</a></span><span class="op">(</span>ropensci <span class="op">=</span> <span class="st">"https://ropensci.r-universe.dev"</span><span class="op">)</span>
 <span class="co">#&gt; - ropensci   [*  --&gt; https://ropensci.r-universe.dev]</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Would you like to continue? [y/n] y</span>
