@@ -10,7 +10,7 @@ pretty_print_updates <- function(old, new) {
       # data frame of new prefs
       tibble::tibble(
         pref = names(new),
-        new_value = new  %>% unname() %>% lapply(function(x) ifelse(is.null(x), "*", as.character(x))) %>% unlist()
+        new_value = new %>% unname() %>% lapply(function(x) ifelse(is.null(x), "*", as.character(x))) %>% unlist()
       ),
       by = "pref"
     ) %>%
@@ -36,11 +36,13 @@ pretty_print_updates <- function(old, new) {
 
   # print updates --------------------------------------------------------------
   df_updates %>%
-    dplyr::mutate(message = paste0("- ",
-                                   .data$pref, "[",
-                                   .data$old_value, " --> ",
-                                   .data$new_value,
-                                   "]")) %>%
+    dplyr::mutate(message = paste0(
+      "- ",
+      .data$pref, "[",
+      .data$old_value, " --> ",
+      .data$new_value,
+      "]"
+    )) %>%
     dplyr::pull(.data$message) %>%
     paste(collapse = "\n") %>%
     cat()
@@ -52,8 +54,3 @@ pretty_print_updates <- function(old, new) {
 # - askpass       [* -> 1.1]
 # - base64enc     [* -> 0.1-3]
 # - brew          [* -> 1.0-6]
-
-
-
-
-

@@ -28,7 +28,7 @@ rstudio_config_path <- function(...) {
   else {
     base <- rappdirs::user_config_dir("RStudio", os = "unix")
   }
-  file.path(base, ...)
+  fs::path(base, ...)
 }
 
 #' Is OS Windows?
@@ -52,9 +52,11 @@ check_prefs_consistency <- function(x) {
   # check for prefs not listed
   bad_pref_names <- names(x) %>% setdiff(df_all_prefs$Property)
   if (length(bad_pref_names) > 0L) {
-    paste("{.val {paste(bad_pref_names, collapse = ', ')}",
-          "may not be valid RStudio preference names}") %>%
-    cli::cli_alert_danger()
+    paste(
+      "{.val {paste(bad_pref_names, collapse = ', ')}",
+      "may not be valid RStudio preference names}"
+    ) %>%
+      cli::cli_alert_danger()
   }
 
   # check passed types
@@ -65,7 +67,9 @@ check_prefs_consistency <- function(x) {
         df_all_prefs %>%
         dplyr::filter(.data$Property %in% .x) %>%
         as.list()
-      if (rlang::is_empty(pref_def_list$Property)) return(invisible(NULL))
+      if (rlang::is_empty(pref_def_list$Property)) {
+        return(invisible(NULL))
+      }
 
       # checking passed arguments against expected types
       if (pref_def_list$r_type %in% "logical" && !rlang::is_logical(.x)) {
@@ -82,12 +86,45 @@ check_prefs_consistency <- function(x) {
       }
       else if (pref_def_list$r_type %in% "numeric" && !is.numeric(.x)) {
         paste("Expecting {.field {.y}} to be type 'numeric', but it is not.") %>%
-        cli::cli_alert_danger()
+          cli::cli_alert_danger()
       }
-
     }
   )
 
   invisible(NULL)
 }
 
+
+backup_file <- function(file, quiet = FALSE) {
+  path_dir <- fs::path_dir(file)
+  path_ext <- paste0(".", fs::path_ext(file))
+  new_file_name <-
+    fs::path_file(file) %>% {
+      gsub(
+        pattern = path_ext,
+        replacement = paste0(" ", Sys.Date(), path_ext),
+        x = .,
+        fixed = TRUE
+      )
+    }
+
+  if (fs::file_exists(fs::path(path_dir, new_file_name))) {
+    if (!quiet) {
+      paste(
+        "Aboring back;",
+        "file {.val {fs::path(path_dir, new_file_name)}} already exists."
+      ) %>%
+        cli::cli_alert_danger()
+    }
+    return(invisible(NULL))
+  }
+
+  fs::file_copy(
+    path = file,
+    new_path = fs::path(path_dir, new_file_name),
+    overwrite = FALSE
+  )
+  if (!quiet) {
+    cli::cli_alert_success("File {fs::path(path_dir, new_file_name)}} saved as backup.")
+  }
+}
