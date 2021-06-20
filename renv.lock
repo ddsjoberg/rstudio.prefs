@@ -601,6 +601,13 @@
       "Repository": "CRAN",
       "Hash": "76c9e04c712a05848ae7a23d2f170a40"
     },
+    "remedy": {
+      "Package": "remedy",
+      "Version": "0.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "f13711a3c49df742a5ee62a7183eccbd"
+    },
     "remotes": {
       "Package": "remotes",
       "Version": "2.4.0",

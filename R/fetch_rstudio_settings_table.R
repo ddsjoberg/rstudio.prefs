@@ -1,7 +1,7 @@
 #' Fetch table of RStudio Settings
 #'
 #' Settings are fetched from
-#' https://docs.rstudio.com/ide/server-pro/session-user-settings.html
+#' [https://docs.rstudio.com/ide/server-pro/session-user-settings.html](https://docs.rstudio.com/ide/server-pro/session-user-settings.html)
 #'
 #' @return tibble
 #' @export

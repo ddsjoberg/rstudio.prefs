@@ -11,7 +11,7 @@ tibble
 }
 \description{
 Settings are fetched from
-https://docs.rstudio.com/ide/server-pro/session-user-settings.html
+\url{https://docs.rstudio.com/ide/server-pro/session-user-settings.html}
 }
 \examples{
 
