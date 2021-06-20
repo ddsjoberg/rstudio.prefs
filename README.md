@@ -38,11 +38,15 @@ use_rstudio_prefs(
 #> * Restart RStudio for updates to take effect.
 ```
 
-Add a secondary repository to the ROpenSci R-Universe
+Add secondary repositories to the ROpenSci and ddsjoberg R-Universes
 
 ``` r
-use_rstudio_secondary_repo(ropensci = "https://ropensci.r-universe.dev")
-#> - ropensci   [*  --> https://ropensci.r-universe.dev]
+use_rstudio_secondary_repo(
+  ropensci = "https://ropensci.r-universe.dev",
+  ddsjoberg = "https://ddsjoberg.r-universe.dev"
+)
+#> - ropensci    [*  --> https://ropensci.r-universe.dev ]
+#> - ddsjoberg   [*  --> https://ddsjoberg.r-universe.dev]
 #> 
 #> Would you like to continue? [y/n] y
 #> v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs 2021-06-20.json' saved as backup.
