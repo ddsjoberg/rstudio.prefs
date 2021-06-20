@@ -11,7 +11,7 @@
 #' the existing JSON file of options. Default is `TRUE`. When `FALSE`,
 #' the function will return a list of all options, instead of writing
 #' them to file.
-#' @param .backup Logical indicating whether to create a back-up of preferences
+#' @param .backup logical indicating whether to create a back-up of preferences
 #' file before it's updated. Default is `TRUE`
 #'
 #' @export
