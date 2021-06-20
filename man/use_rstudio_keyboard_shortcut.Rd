@@ -4,19 +4,29 @@
 \alias{use_rstudio_keyboard_shortcut}
 \title{Set RStudio Keyboard Shortcuts}
 \usage{
-use_rstudio_keyboard_shortcut(..., write_json = TRUE)
+use_rstudio_keyboard_shortcut(..., .write_json = TRUE, .backup = TRUE)
 }
 \arguments{
 \item{...}{series of RStudio keyboard shortcuts to update}
 
-\item{write_json}{logical indicating whether to udpate and overwrite
+\item{.write_json}{logical indicating whether to update and overwrite
 the existing JSON file of options. Default is \code{TRUE}. When \code{FALSE},
 the function will return a list of all options, instead of writing
 them to file.}
+
+\item{.backup}{Logical indicating whether to create a back-up of preferences
+file before it's updated. Default is \code{TRUE}}
 }
 \description{
 This function updates the RStudio keyboard shortcuts saved in
 the \code{addins.json} file.
+}
+\examples{
+\donttest{\dontrun{
+use_rstudio_keyboard_shortcut(
+  `mskRutils::make_path_norm` = "Ctrl+Shift+/"
+)
+}}
 }
 \author{
 Daniel D. Sjoberg

@@ -8,8 +8,15 @@
 #'
 #' @export
 #' @author Daniel D. Sjoberg
+#'
+#' @examples
+#' \donttest{\dontrun{
+#' use_rstudio_keyboard_shortcut(
+#'   `mskRutils::make_path_norm` = "Ctrl+Shift+/"
+#' )
+#' }}
 
-use_rstudio_keyboard_shortcut <- function(..., write_json = TRUE) {
+use_rstudio_keyboard_shortcut <- function(..., .write_json = TRUE, .backup = TRUE) {
   # check whether fn may be used -----------------------------------------------
   check_min_rstudio_version("1.3")
   if (!interactive()) {
@@ -43,7 +50,7 @@ use_rstudio_keyboard_shortcut <- function(..., write_json = TRUE) {
     list_current_shortcuts %>%
     purrr::update_list(!!!list_updated_shortcuts)
 
-  if (isTRUE(write_json)) {
+  if (isTRUE(.write_json)) {
     backup_file(rstudio_config_path("keybindings/addins.json"))
     jsonlite::write_json(
       list_final_shortcuts,

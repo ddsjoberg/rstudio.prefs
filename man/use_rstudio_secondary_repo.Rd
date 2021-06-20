@@ -4,16 +4,19 @@
 \alias{use_rstudio_secondary_repo}
 \title{Set RStudio Secondary Repository}
 \usage{
-use_rstudio_secondary_repo(..., write_json = TRUE)
+use_rstudio_secondary_repo(..., .write_json = TRUE, .backup = TRUE)
 }
 \arguments{
 \item{...}{series of secondary repositories
 \code{ropensci = "https://ropensci.r-universe.dev"}}
 
-\item{write_json}{logical indicating whether to udpate and overwrite
+\item{.write_json}{logical indicating whether to update and overwrite
 the existing JSON file of options. Default is \code{TRUE}. When \code{FALSE},
 the function will return a list of all options, instead of writing
 them to file.}
+
+\item{.backup}{Logical indicating whether to create a back-up of preferences
+file before it's updated. Default is \code{TRUE}}
 }
 \description{
 This function updates the RStudio preferences saved in

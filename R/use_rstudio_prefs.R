@@ -7,10 +7,12 @@
 #'
 #' @param ... series of RStudio preferences to update, e.g.
 #' `always_save_history = FALSE, rainbow_parentheses = TRUE`
-#' @param write_json logical indicating whether to udpate and overwrite
+#' @param .write_json logical indicating whether to update and overwrite
 #' the existing JSON file of options. Default is `TRUE`. When `FALSE`,
 #' the function will return a list of all options, instead of writing
 #' them to file.
+#' @param .backup Logical indicating whether to create a back-up of preferences
+#' file before it's updated. Default is `TRUE`
 #'
 #' @export
 #' @author Daniel D. Sjoberg
@@ -31,7 +33,7 @@
 #' use_rstudio_prefs(!!!pref_list)
 #' }}
 
-use_rstudio_prefs <- function(..., write_json = TRUE) {
+use_rstudio_prefs <- function(..., .write_json = TRUE, .backup = TRUE) {
   # check whether fn may be used -----------------------------------------------
   check_min_rstudio_version("1.3")
   if (!interactive()) {
@@ -60,8 +62,8 @@ use_rstudio_prefs <- function(..., write_json = TRUE) {
     list_current_prefs %>%
     purrr::update_list(!!!list_updated_prefs)
 
-  if (isTRUE(write_json)) {
-    backup_file(rstudio_config_path("rstudio-prefs.json"))
+  if (isTRUE(.write_json)) {
+    if (.backup) backup_file(rstudio_config_path("rstudio-prefs.json"))
     jsonlite::write_json(
       final_prefs,
       path = rstudio_config_path("rstudio-prefs.json"),

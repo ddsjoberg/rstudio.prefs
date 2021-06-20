@@ -4,9 +4,15 @@
 \name{rstudio.prefs-package}
 \alias{rstudio.prefs}
 \alias{rstudio.prefs-package}
-\title{rstudio.prefs: Collection of Functions to Set RStudio Preferences}
+\title{rstudio.prefs: Functions to Set RStudio Preferences}
 \description{
-What the package does (one paragraph).
+As of RStudio v1.3, the preferences in the Global Options
+    dialog (and a number of other preferences that aren’t) are now saved
+    in simple, plain-text JSON files. This package provides an interface
+    for working with these RStudio JSON preference files to easily make
+    modifications without using the point-and-click option menus. This is
+    particularly helpful when working on teams to ensure a unified
+    experience across machines.
 }
 \author{
 \strong{Maintainer}: Daniel D. Sjoberg \email{danield.sjoberg@gmail.com} (\href{https://orcid.org/0000-0003-0862-2018}{ORCID})

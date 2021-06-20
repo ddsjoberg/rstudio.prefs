@@ -19,7 +19,7 @@
 #' )
 #' }}
 
-use_rstudio_secondary_repo <- function(..., write_json = TRUE) {
+use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) {
   # check whether fn may be used -----------------------------------------------
   check_min_rstudio_version("1.3")
   if (!interactive()) {
@@ -72,7 +72,7 @@ use_rstudio_secondary_repo <- function(..., write_json = TRUE) {
     paste(collapse = "|")
 
   # write updated JSON file ----------------------------------------------------
-  if (isTRUE(write_json)) {
+  if (isTRUE(.write_json)) {
     backup_file(rstudio_config_path("rstudio-prefs.json"))
     jsonlite::write_json(
       list_current_prefs,

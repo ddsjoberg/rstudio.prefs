@@ -125,6 +125,6 @@ backup_file <- function(file, quiet = FALSE) {
     overwrite = FALSE
   )
   if (!quiet) {
-    cli::cli_alert_success("File {fs::path(path_dir, new_file_name)}} saved as backup.")
+    cli::cli_alert_success("File {.val {fs::path(path_dir, new_file_name)}} saved as backup.")
   }
 }

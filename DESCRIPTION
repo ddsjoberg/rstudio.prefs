@@ -1,5 +1,5 @@
 Package: rstudio.prefs
-Title: Collection of Functions to Set RStudio Preferences
+Title: Functions to Set RStudio Preferences
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Daniel D.",
@@ -7,14 +7,20 @@ Authors@R:
            role = c("aut", "cre"),
            email = "danield.sjoberg@gmail.com",
            comment = c(ORCID = "0000-0003-0862-2018"))
-Description: What the package does (one paragraph).
+Description: As of RStudio v1.3, the preferences in the Global Options
+    dialog (and a number of other preferences that aren’t) are now saved
+    in simple, plain-text JSON files. This package provides an interface
+    for working with these RStudio JSON preference files to easily make
+    modifications without using the point-and-click option menus. This is
+    particularly helpful when working on teams to ensure a unified
+    experience across machines.
 License: GPL (>= 3)
 Depends: 
     R (>= 3.4)
 Imports: 
     cli (>= 2.5.0),
-    fs (>= 1.5.0),
     dplyr (>= 1.0.6),
+    fs (>= 1.5.0),
     jsonlite (>= 1.7.2),
     purrr (>= 0.3.4),
     rappdirs (>= 0.3.3),
@@ -23,6 +29,7 @@ Imports:
     rvest (>= 1.0.0),
     tibble (>= 3.1.2)
 Suggests: 
+    spelling,
     covr (>= 3.5.1),
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
@@ -30,3 +37,4 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Language: en-US
