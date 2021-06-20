@@ -17,10 +17,10 @@ You can install the released version of {rstudio.prefs} from [GitHub](https://gi
 # instal.packages('devtools')
 devtools::install_github("ddsjoberg/rstudio.prefs")
 ```
-
-## Example
+## Examples
 
 Update the RStudio default preferences.
+Full list of modifiable settings here: https://docs.rstudio.com/ide/server-pro/session-user-settings.html
 
 ``` r
 library(rstudio.prefs)
