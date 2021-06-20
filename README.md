@@ -14,7 +14,7 @@ This is particularly helpful when working on teams to ensure a unified experienc
 You can install the released version of {rstudio.prefs} from [GitHub](https://github.com/ddsjoberg/rstudio.prefs) with:
 
 ``` r
-# instal.packages('devtools')
+# install.packages('devtools')
 devtools::install_github("ddsjoberg/rstudio.prefs")
 ```
 ## Examples
