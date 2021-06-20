@@ -41,9 +41,7 @@ use_rstudio_prefs(
 Add a secondary repository to the ROpenSci R-Universe
 
 ``` r
-use_rstudio_secondary_repo(
-  ropensci = "https://ropensci.r-universe.dev"
-)
+use_rstudio_secondary_repo(ropensci = "https://ropensci.r-universe.dev")
 #> - ropensci   [*  --> https://ropensci.r-universe.dev]
 #> 
 #> Would you like to continue? [y/n] y
