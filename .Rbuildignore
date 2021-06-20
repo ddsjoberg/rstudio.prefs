@@ -1,0 +1,11 @@
+^renv$
+^renv\.lock$
+^rstudio\.prefs\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^data-raw$
+^codecov\.yml$
+^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
