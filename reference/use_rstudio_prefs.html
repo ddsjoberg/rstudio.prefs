@@ -118,7 +118,7 @@ modified are listed here
 https://docs.rstudio.com/ide/server-pro/session-user-settings.html</p>
     </div>
 
-    <pre class="usage"><span class='fu'>use_rstudio_prefs</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>use_rstudio_prefs</span><span class='op'>(</span><span class='va'>...</span>, write_json <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -128,24 +128,34 @@ https://docs.rstudio.com/ide/server-pro/session-user-settings.html</p>
       <td><p>series of RStudio preferences to update, e.g.
 <code>always_save_history = FALSE, rainbow_parentheses = TRUE</code></p></td>
     </tr>
+    <tr>
+      <th>write_json</th>
+      <td><p>logical indicating whether to udpate and overwrite
+the existing JSON file of options. Default is <code>TRUE</code>. When <code>FALSE</code>,
+the function will return a list of all options, instead of writing
+them to file.</p></td>
+    </tr>
     </table>
 
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Daniel D. Sjoberg</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># pass preferences individually --------------</span>
 <span class='fu'>use_rstudio_prefs</span><span class='op'>(</span>
   always_save_history <span class='op'>=</span> <span class='cn'>FALSE</span>,
   rainbow_parentheses <span class='op'>=</span> <span class='cn'>TRUE</span>
 <span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error: RStudio not running</span></div><div class='input'>
+
 <span class='co'># pass a list of preferences -----------------</span>
 <span class='va'>pref_list</span> <span class='op'>&lt;-</span>
   <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>always_save_history <span class='op'>=</span> <span class='cn'>FALSE</span>,
        rainbow_parentheses <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='fu'>use_rstudio_prefs</span><span class='op'>(</span><span class='op'>!</span><span class='op'>!</span><span class='op'>!</span><span class='va'>pref_list</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error: RStudio not running</span></div><div class='input'><span class='co'># }</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
