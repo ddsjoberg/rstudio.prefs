@@ -1,5 +1,6 @@
 ## code to prepare `DATASET` dataset goes here
 
+devtools::load_all(".")
 df_rstudio_settings_table <-
   fetch_rstudio_settings_table()
 attr(df_rstudio_settings_table, "date") <- Sys.Date()
