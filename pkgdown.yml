@@ -2,5 +2,8 @@ pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2021-06-20T20:23Z
+last_built: 2021-06-20T20:40Z
+urls:
+  reference: http://www.danieldsjoberg.com/rstudio.prefs//reference
+  article: http://www.danieldsjoberg.com/rstudio.prefs//articles
 

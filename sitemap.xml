@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://www.danieldsjoberg.com/rstudio.prefs//index.html</loc>
+  </url>
+  <url>
+    <loc>http://www.danieldsjoberg.com/rstudio.prefs//reference/fetch_rstudio_settings_table.html</loc>
+  </url>
+  <url>
+    <loc>http://www.danieldsjoberg.com/rstudio.prefs//reference/rstudio.prefs-package.html</loc>
+  </url>
+  <url>
+    <loc>http://www.danieldsjoberg.com/rstudio.prefs//reference/use_rstudio_keyboard_shortcut.html</loc>
+  </url>
+  <url>
+    <loc>http://www.danieldsjoberg.com/rstudio.prefs//reference/use_rstudio_prefs.html</loc>
+  </url>
+  <url>
+    <loc>http://www.danieldsjoberg.com/rstudio.prefs//reference/use_rstudio_secondary_repo.html</loc>
+  </url>
+</urlset>
