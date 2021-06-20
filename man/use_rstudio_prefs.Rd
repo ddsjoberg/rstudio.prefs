@@ -4,11 +4,16 @@
 \alias{use_rstudio_prefs}
 \title{Set RStudio Preferences}
 \usage{
-use_rstudio_prefs(...)
+use_rstudio_prefs(..., write_json = TRUE)
 }
 \arguments{
 \item{...}{series of RStudio preferences to update, e.g.
 \verb{always_save_history = FALSE, rainbow_parentheses = TRUE}}
+
+\item{write_json}{logical indicating whether to udpate and overwrite
+the existing JSON file of options. Default is \code{TRUE}. When \code{FALSE},
+the function will return a list of all options, instead of writing
+them to file.}
 }
 \description{
 This function updates the RStudio preferences saved in
@@ -17,7 +22,7 @@ modified are listed here
 https://docs.rstudio.com/ide/server-pro/session-user-settings.html
 }
 \examples{
-\donttest{
+\donttest{\dontrun{
 # pass preferences individually --------------
 use_rstudio_prefs(
   always_save_history = FALSE,
@@ -30,5 +35,8 @@ pref_list <-
        rainbow_parentheses = TRUE)
 
 use_rstudio_prefs(!!!pref_list)
+}}
 }
+\author{
+Daniel D. Sjoberg
 }

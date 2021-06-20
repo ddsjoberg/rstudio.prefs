@@ -7,12 +7,16 @@
 #'
 #' @param ... series of RStudio preferences to update, e.g.
 #' `always_save_history = FALSE, rainbow_parentheses = TRUE`
+#' @param write_json logical indicating whether to udpate and overwrite
+#' the existing JSON file of options. Default is `TRUE`. When `FALSE`,
+#' the function will return a list of all options, instead of writing
+#' them to file.
 #'
 #' @export
 #' @author Daniel D. Sjoberg
 #'
 #' @examples
-#' \donttest{
+#' \donttest{\dontrun{
 #' # pass preferences individually --------------
 #' use_rstudio_prefs(
 #'   always_save_history = FALSE,
@@ -25,9 +29,9 @@
 #'        rainbow_parentheses = TRUE)
 #'
 #' use_rstudio_prefs(!!!pref_list)
-#' }
+#' }}
 
-use_rstudio_prefs <- function(...) {
+use_rstudio_prefs <- function(..., write_json = TRUE) {
   # check whether fn may be used -----------------------------------------------
   check_min_rstudio_version("1.3")
   if (!interactive()) {
@@ -52,15 +56,23 @@ use_rstudio_prefs <- function(...) {
   }
 
   # update prefs, convert to JSON, and save file -------------------------------
-  list_current_prefs %>%
-    purrr::update_list(!!!list_updated_prefs) %>%
+  final_prefs <-
+    list_current_prefs %>%
+    purrr::update_list(!!!list_updated_prefs)
+
+  if (isTRUE(write_json)) {
     jsonlite::write_json(
+      final_prefs,
       path = rstudio_config_path("rstudio-prefs.json"),
       pretty = TRUE,
       auto_unbox = TRUE
     )
-
-  cli::cli_ul("Restart RStudio for updates to take effect.")
+    cli::cli_ul("Restart RStudio for updates to take effect.")
+    return(invisible(NULL))
+  }
+  else {
+    return(final_prefs)
+  }
 }
 
 

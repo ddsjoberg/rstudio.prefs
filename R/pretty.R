@@ -10,7 +10,7 @@ pretty_print_updates <- function(old, new) {
       # data frame of new prefs
       tibble::tibble(
         pref = names(new),
-        new_value = new  %>% unname() %>% lapply(as.character) %>% unlist()
+        new_value = new  %>% unname() %>% lapply(function(x) ifelse(is.null(x), "*", as.character(x))) %>% unlist()
       ),
       by = "pref"
     ) %>%
