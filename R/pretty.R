@@ -4,7 +4,9 @@ pretty_print_updates <- function(old, new) {
     # data frame of old prefs
     tibble::tibble(
       pref = names(old) %>% intersect(names(new)),
-      old_value = old[names(new)] %>% unname() %>% lapply(as.character) %>% unlist()
+      old_value =
+        old[names(old) %>% intersect(names(new))] %>%
+        unname() %>% lapply(as.character) %>% unlist()
     ) %>%
     dplyr::full_join(
       # data frame of new prefs

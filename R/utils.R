@@ -111,7 +111,7 @@ backup_file <- function(file, quiet = FALSE) {
   if (fs::file_exists(fs::path(path_dir, new_file_name))) {
     if (!quiet) {
       paste(
-        "Aboring back;",
+        "Aboring backup;",
         "file {.val {fs::path(path_dir, new_file_name)}} already exists."
       ) %>%
         cli::cli_alert_danger()

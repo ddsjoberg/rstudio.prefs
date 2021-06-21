@@ -35,7 +35,6 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
 
   # if no secondary repos exist, create the structure for them -----------------
   if (is.null(list_current_prefs$cran_mirror)) {
-    current_repos <- list()
     # i took these values from my own settings...may need to be modfied for broader use
     list_current_prefs$cran_mirror <-
       list("name" = "Global (CDN)",
@@ -96,7 +95,7 @@ repo_string_as_named_list <- function(x) {
   xx <- strsplit(x, "|", fixed = TRUE) %>% unlist()
 
   # use every other element as the value and the name and return as list
-  xx[!seq_len(length(xx)) %% 2] %>%
-    stats::setNames(xx[seq_len(length(xx)) %% 2]) %>%
+  xx[!as.logical(seq_len(length(xx)) %% 2)] %>%
+    stats::setNames(xx[as.logical(seq_len(length(xx)) %% 2)]) %>%
     as.list()
 }
