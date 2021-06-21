@@ -28,14 +28,14 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
     return(invisible())
   }
 
-  # save lists of existing and updated prefs -----------------------------------
+  # save lists of existing and updated repos -----------------------------------
   user_passed_updated_repos <- rlang::dots_list(...)
   list_current_prefs <-
     jsonlite::fromJSON(rstudio_config_path("rstudio-prefs.json"))
 
   # if no secondary repos exist, create the structure for them -----------------
   if (is.null(list_current_prefs$cran_mirror)) {
-    # i took these values from my own settings...may need to be modfied for broader use
+    # i took these values from my own settings...may need to be modified for broader use
     list_current_prefs$cran_mirror <-
       list("name" = "Global (CDN)",
            "host" = "RStudio",
@@ -89,6 +89,15 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
 }
 
 
+#' Convert secondary repo string to named list
+#'
+#' The secondary repo string uses `|` to separate the repo names and their
+#' values, as well as two different repos, e.g.
+#' `'ropensci|https://ropensci.r-universe.dev|ddsjoberg|https://ddsjoberg.r-universe.dev'`.
+#'
+#' @param x secondary repository string from
+#' `"rstudio-prefs.json"` --> `"cran_mirror"` --> `"secondary"`
+#' @noRd
 repo_string_as_named_list <- function(x) {
   if (is.null(x)) return(list())
   # split string by |

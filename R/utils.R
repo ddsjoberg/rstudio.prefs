@@ -45,6 +45,16 @@ is_windows <- function(...) {
 }
 
 
+#' Check Validity of User-passed Preferences
+#'
+#'  Function performs some checks of the user inputs, e.g. the name of the
+#'  preference is checked against the table from
+#'  `fetch_rstudio_settings_table()`...if name is not found a warning
+#'  message is printed. The type/class of the input is also checked against
+#'  the expected class (again taken from `fetch_rstudio_settings_table()`)
+#'
+#' @param x list of user-passed preferences to update/modify
+#' @noRd
 check_prefs_consistency <- function(x) {
   # first grab df of all prefs
   df_all_prefs <- fetch_rstudio_settings_table()
@@ -95,6 +105,13 @@ check_prefs_consistency <- function(x) {
 }
 
 
+#' Create a back-up copy of a file
+#'
+#' Function copies the file, and adds today's date to the end of the file name.
+#'
+#' @param file path and file location.
+#' @param quiet logical
+#' @noRd
 backup_file <- function(file, quiet = FALSE) {
   path_dir <- fs::path_dir(file)
   path_ext <- paste0(".", fs::path_ext(file))
