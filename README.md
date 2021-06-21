@@ -38,7 +38,7 @@ use_rstudio_prefs(
 #> * Restart RStudio for updates to take effect.
 ```
 
-Add secondary repositories to the ROpenSci and ddsjoberg R-Universes.
+Add secondary repositories to the **ROpenSci** and **ddsjoberg** R-Universes.
 This is also helpful for adding secondary RStudio Package Manager repositories.
 
 ``` r
