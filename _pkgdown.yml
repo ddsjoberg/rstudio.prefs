@@ -3,9 +3,9 @@ url: http://www.danieldsjoberg.com/rstudio.prefs/
 template:
   params:
     bootswatch: flatly
-# development:
-#   mode: auto
-#   version_label: default
+development:
+  mode: auto
+  version_label: default
 
 authors:
   Daniel D. Sjoberg:
