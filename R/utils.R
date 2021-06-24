@@ -54,6 +54,7 @@ is_windows <- function(...) {
 #'  the expected class (again taken from `fetch_rstudio_settings_table()`)
 #'
 #' @param x list of user-passed preferences to update/modify
+#' @keywords internal
 #' @noRd
 check_prefs_consistency <- function(x) {
   # check for duplicate names --------------------------------------------------
