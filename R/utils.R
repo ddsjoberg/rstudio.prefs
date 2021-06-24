@@ -56,10 +56,20 @@ is_windows <- function(...) {
 #' @param x list of user-passed preferences to update/modify
 #' @noRd
 check_prefs_consistency <- function(x) {
+  # check for duplicate names --------------------------------------------------
+  if (names(x) %>% duplicated() %>% any()) {
+    paste(
+      "Duplicate preferences passed:",
+      paste(names(x)[names(x) %>% duplicated() %>% which()] %>% unique(),
+            collapse = ", ")
+    ) %>%
+      stop(call. = FALSE)
+  }
+
+  # check for prefs not listed -------------------------------------------------
   # first grab df of all prefs
   df_all_prefs <- fetch_rstudio_settings_table()
 
-  # check for prefs not listed -------------------------------------------------
   bad_pref_names <- names(x) %>% setdiff(df_all_prefs$Property)
   if (length(bad_pref_names) > 0L) {
     paste(
