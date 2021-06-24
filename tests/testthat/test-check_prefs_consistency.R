@@ -1,4 +1,10 @@
 test_that("check_prefs_consistency() works", {
+  # expect error about duplicate names
+  expect_error(
+    check_prefs_consistency(
+      list(not_a_pref = TRUE, not_a_pref = TRUE, not_a_pref = TRUE))
+  )
+
   # expect note about bad pref names
   expect_error(
     check_prefs_consistency(
