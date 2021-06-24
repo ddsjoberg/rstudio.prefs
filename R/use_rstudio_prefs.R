@@ -44,6 +44,10 @@ use_rstudio_prefs <- function(..., .write_json = TRUE, .backup = TRUE) {
 
   # save lists of existing and updated prefs -----------------------------------
   list_updated_prefs <- rlang::dots_list(...)
+  if (!rlang::is_named(list_updated_prefs)) {
+    stop("Each argument must be named.")
+  }
+
   list_current_prefs <-
     jsonlite::fromJSON(rstudio_config_path("rstudio-prefs.json"))
 

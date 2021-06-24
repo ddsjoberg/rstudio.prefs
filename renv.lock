@@ -9,10 +9,21 @@
       {
         "Name": "MSK_RSPM",
         "URL": "http://rspm/MSKREPO/latest"
+      },
+      {
+        "Name": "ddsjoberg",
+        "URL": "https://ddsjoberg.r-universe.dev"
       }
     ]
   },
   "Packages": {
+    "BH": {
+      "Package": "BH",
+      "Version": "1.75.0-0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e4c04affc2cac20c8fec18385cd14691"
+    },
     "KernSmooth": {
       "Package": "KernSmooth",
       "Version": "2.23-20",
@@ -349,6 +360,13 @@
       "Repository": "CRAN",
       "Hash": "8eb36c8125038e648e5d111c0d7b2ed4"
     },
+    "hms": {
+      "Package": "hms",
+      "Version": "1.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e4bf161ccb74a2c1c0e8ac63bbe332b4"
+    },
     "htmltools": {
       "Package": "htmltools",
       "Version": "0.5.1.1",
@@ -594,6 +612,13 @@
       "Repository": "CRAN",
       "Hash": "ed95895886dab6d2a584da45503555da"
     },
+    "readr": {
+      "Package": "readr",
+      "Version": "1.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "2639976851f71f330264a9c9c3d43a61"
+    },
     "rematch2": {
       "Package": "rematch2",
       "Version": "2.1.2",
@@ -733,6 +758,19 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "b8c899a5c83f0d897286550481c91798"
+    },
+    "starter": {
+      "Package": "starter",
+      "Version": "0.1.0",
+      "Source": "GitHub",
+      "Remotes": "ddsjoberg/rstudio.prefs",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "starter",
+      "RemoteUsername": "ddsjoberg",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "5fda0e6bcd0a8ec028630222963b079ee5abf6cf",
+      "Hash": "d7fcea2f5df02cfb40fdb24c685c1437"
     },
     "stringi": {
       "Package": "stringi",

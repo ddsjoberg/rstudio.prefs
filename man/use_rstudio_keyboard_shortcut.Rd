@@ -24,7 +24,7 @@ the \code{addins.json} file.
 \examples{
 \donttest{\dontrun{
 use_rstudio_keyboard_shortcut(
-  `mskRutils::make_path_norm` = "Ctrl+Shift+/"
+  `starter::make_path_norm` = "Ctrl+Shift+/"
 )
 }}
 }

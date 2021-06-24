@@ -55,4 +55,16 @@ use_rstudio_secondary_repo(
 #> * Restart RStudio for updates to take effect.
 ```
 
-Use `use_rstudio_keyboard_shortcut()` to programmatically add keyboard shortcuts.
+Use `use_rstudio_keyboard_shortcut()` to programmatically add keyboard shortcuts for add-ins.
+
+```r
+use_rstudio_keyboard_shortcut(
+  `starter::make_path_norm` = "Ctrl+Shift+/"
+)
+#> - Ctrl+Shift+/   [*  --> starter::make_path_norm]
+#> 
+#> Would you like to continue? [y/n] y
+#> v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/keybindings/addins 2021-06-20.json' saved as backup.
+#> v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/keybindings/addins.json' updated.
+#> * Restart RStudio for updates to take effect.
+```
