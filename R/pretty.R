@@ -6,7 +6,8 @@ pretty_print_updates <- function(old, new) {
       pref = names(old) %>% intersect(names(new)),
       old_value =
         old[names(old) %>% intersect(names(new))] %>%
-        unname() %>% lapply(as.character) %>% unlist()
+        unname() %>% lapply(as.character) %>% unlist() %||%
+        NA_character_ # if no overlap with old and new, just add NA
     ) %>%
     dplyr::full_join(
       # data frame of new prefs
