@@ -27,7 +27,8 @@ passed by the user, the name will be updated in the JSON file.
 \examples{
 \donttest{\dontrun{
 use_rstudio_secondary_repo(
-  ropensci = "https://ropensci.r-universe.dev"
+  ropensci = "https://ropensci.r-universe.dev",
+  ddsjoberg = "https://ddsjoberg.r-universe.dev"
 )
 }}
 }

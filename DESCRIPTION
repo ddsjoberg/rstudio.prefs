@@ -1,6 +1,6 @@
 Package: rstudio.prefs
 Title: Functions to Set RStudio Preferences
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person(given = "Daniel D.",
            family = "Sjoberg",

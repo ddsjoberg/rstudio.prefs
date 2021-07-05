@@ -3,7 +3,9 @@
 #' This function updates the RStudio keyboard shortcuts saved in
 #' the `addins.json` file.
 #'
-#' @param ... series of RStudio keyboard shortcuts to update
+#' @param ... series of RStudio keyboard shortcuts to update. The argument
+#' name is the keyboard shortcut, and the value is a string of the function
+#' name that will execute. See examples.
 #' @inheritParams use_rstudio_prefs
 #'
 #' @export
@@ -12,7 +14,7 @@
 #' @examples
 #' \donttest{\dontrun{
 #' use_rstudio_keyboard_shortcut(
-#'   `starter::make_path_norm` = "Ctrl+Shift+/"
+#'   "Ctrl+Shift+/" = "starter::make_path_norm"
 #' )
 #' }}
 
@@ -26,9 +28,9 @@ use_rstudio_keyboard_shortcut <- function(..., .write_json = TRUE, .backup = TRU
   }
 
   # save lists of shortcuts to add ---------------------------------------------
-  list_updated_shortcuts <- rlang::dots_list(...)
-  if (!rlang::is_named(list_updated_shortcuts)) {
-    stop("Each argument must be named.")
+  i_list_updated_shortcuts <- rlang::dots_list(...)
+  if (!rlang::is_named(i_list_updated_shortcuts)) {
+    stop("Each argument must be named.", call. = FALSE)
   }
 
   # import existing addings ----------------------------------------------------
@@ -42,7 +44,6 @@ use_rstudio_keyboard_shortcut <- function(..., .write_json = TRUE, .backup = TRU
     list()
 
   # invert list names and values -----------------------------------------------
-  i_list_updated_shortcuts <- invert_list_names_and_values(list_updated_shortcuts)
   i_list_current_shortcuts <- invert_list_names_and_values(list_current_shortcuts)
 
   # print updates that will be made --------------------------------------------
@@ -60,11 +61,9 @@ use_rstudio_keyboard_shortcut <- function(..., .write_json = TRUE, .backup = TRU
 
   if (isTRUE(.write_json)) {
     backup_file(rstudio_config_path("keybindings/addins.json"))
-    jsonlite::write_json(
+    write_json(
       list_final_shortcuts,
-      path = rstudio_config_path("keybindings/addins.json"),
-      pretty = TRUE,
-      auto_unbox = TRUE
+      path = rstudio_config_path("keybindings/addins.json")
     )
 
     # adding other files to 'keybindings' folder if they do not exist ------------
@@ -72,9 +71,7 @@ use_rstudio_keyboard_shortcut <- function(..., .write_json = TRUE, .backup = TRU
       purrr::walk(
         function(.x) {
           if (!fs::file_exists(rstudio_config_path(.x))) {
-            jsonlite::write_json(
-              NULL, path = rstudio_config_path(.x), pretty = TRUE, auto_unbox = TRUE
-            )
+            write_json(NULL, path = rstudio_config_path(.x))
           }
         }
       )

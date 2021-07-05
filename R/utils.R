@@ -131,6 +131,14 @@ check_prefs_consistency <- function(x) {
 #' @param quiet logical
 #' @noRd
 backup_file <- function(file, quiet = FALSE) {
+  # if file does not exist, print msg and skip backup
+  if (!fs::file_exists(file)) {
+    if (!quiet) {
+      cli::cli_alert_info("File {.val {file}} dose not exist. No backup created.")
+    }
+    return(invisible(NULL))
+  }
+
   path_dir <- fs::path_dir(file)
   path_ext <- paste0(".", fs::path_ext(file))
   new_file_name <-
@@ -162,4 +170,30 @@ backup_file <- function(file, quiet = FALSE) {
   if (!quiet) {
     cli::cli_alert_success("File {.val {fs::path(path_dir, new_file_name)}} saved as backup.")
   }
+}
+
+
+#' Write JSON file
+#'
+#' Simple wrapper for `jsonlite::write_json()`, where path directory is created
+#' if it does not already exist. The `jsonlite::write_json()` includes arguments
+#' `pretty = TRUE` and `auto_unbox = TRUE`
+#'
+#' @inheritParams jsonlite::write_json
+#'
+#' @return NULL
+#' @noRd
+write_json <- function(x, path) {
+  # if folder does not exist, create folder
+  if(!fs::dir_exists(fs::path_dir(path))) {
+    fs::dir_create(fs::path_dir(path))
+  }
+
+  # write JSON file
+  jsonlite::write_json(
+    x,
+    path = path,
+    pretty = TRUE,
+    auto_unbox = TRUE
+  )
 }

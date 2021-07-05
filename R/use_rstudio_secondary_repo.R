@@ -77,11 +77,9 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
   # write updated JSON file ----------------------------------------------------
   if (isTRUE(.write_json)) {
     backup_file(rstudio_config_path("rstudio-prefs.json"))
-    jsonlite::write_json(
+    write_json(
       list_current_prefs,
-      path = rstudio_config_path("rstudio-prefs.json"),
-      pretty = TRUE,
-      auto_unbox = TRUE
+      path = rstudio_config_path("rstudio-prefs.json")
     )
     cli::cli_alert_success("File {.val {rstudio_config_path('rstudio-prefs.json')}} updated.")
     cli::cli_ul("Restart RStudio for updates to take effect.")
