@@ -7,7 +7,9 @@
 use_rstudio_keyboard_shortcut(..., .write_json = TRUE, .backup = TRUE)
 }
 \arguments{
-\item{...}{series of RStudio keyboard shortcuts to update}
+\item{...}{series of RStudio keyboard shortcuts to update. The argument
+name is the keyboard shortcut, and the value is a string of the function
+name that will execute. See examples.}
 
 \item{.write_json}{logical indicating whether to update and overwrite
 the existing JSON file of options. Default is \code{TRUE}. When \code{FALSE},
@@ -24,7 +26,7 @@ the \code{addins.json} file.
 \examples{
 \donttest{\dontrun{
 use_rstudio_keyboard_shortcut(
-  `starter::make_path_norm` = "Ctrl+Shift+/"
+  "Ctrl+Shift+/" = "starter::make_path_norm"
 )
 }}
 }

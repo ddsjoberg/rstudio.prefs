@@ -3,11 +3,14 @@
 <!-- badges: start -->
 [![Codecov test coverage](https://codecov.io/gh/ddsjoberg/rstudio.prefs/branch/main/graph/badge.svg)](https://codecov.io/gh/ddsjoberg/rstudio.prefs?branch=main)
 [![R-CMD-check](https://github.com/ddsjoberg/rstudio.prefs/workflows/R-CMD-check/badge.svg)](https://github.com/ddsjoberg/rstudio.prefs/actions)
+[![r-universe](https://ddsjoberg.r-universe.dev/badges/rstudio.prefs)](https://ddsjoberg.r-universe.dev/ui#builds)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/rstudio.prefs)](https://CRAN.R-project.org/package=rstudio.prefs)
 <!-- badges: end -->
 
 As of RStudio v1.3, the preferences in the Global Options dialog (and a number of other preferences that aren’t) are now saved in simple, plain-text JSON files.
 The {rstudio.prefs} package provides an interface for working with these RStudio JSON preference files to easily make modifications without using the point-and-click option menus.
-This is particularly helpful when working on teams to ensure a unified experience across machines.
+This is particularly helpful when working on teams to ensure a unified experience across machines and utilizing settings for best practices.
 
 ## Installation
 
@@ -59,7 +62,7 @@ Use `use_rstudio_keyboard_shortcut()` to programmatically add keyboard shortcuts
 
 ```r
 use_rstudio_keyboard_shortcut(
-  `starter::make_path_norm` = "Ctrl+Shift+/"
+  "Ctrl+Shift+/" = "starter::make_path_norm"
 )
 #> - Ctrl+Shift+/   [*  --> starter::make_path_norm]
 #> 
