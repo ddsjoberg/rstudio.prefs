@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">rstudio.prefs</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -80,7 +80,7 @@
 <a href="#rstudioprefs" class="anchor"></a>rstudio.prefs</h1></div>
 <!-- badges: start -->
 
-<p>As of RStudio v1.3, the preferences in the Global Options dialog (and a number of other preferences that aren’t) are now saved in simple, plain-text JSON files. The {rstudio.prefs} package provides an interface for working with these RStudio JSON preference files to easily make modifications without using the point-and-click option menus. This is particularly helpful when working on teams to ensure a unified experience across machines.</p>
+<p>As of RStudio v1.3, the preferences in the Global Options dialog (and a number of other preferences that aren’t) are now saved in simple, plain-text JSON files. The {rstudio.prefs} package provides an interface for working with these RStudio JSON preference files to easily make modifications without using the point-and-click option menus. This is particularly helpful when working on teams to ensure a unified experience across machines and utilizing settings for best practices.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -123,7 +123,7 @@
 <p>Use <code><a href="reference/use_rstudio_keyboard_shortcut.html">use_rstudio_keyboard_shortcut()</a></code> to programmatically add keyboard shortcuts for add-ins.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/use_rstudio_keyboard_shortcut.html">use_rstudio_keyboard_shortcut</a></span><span class="op">(</span>
-  `starter::make_path_norm` <span class="op">=</span> <span class="st">"Ctrl+Shift+/"</span>
+  <span class="st">"Ctrl+Shift+/"</span> <span class="op">=</span> <span class="st">"starter::make_path_norm"</span>
 <span class="op">)</span>
 <span class="co">#&gt; - Ctrl+Shift+/   [*  --&gt; starter::make_path_norm]</span>
 <span class="co">#&gt; </span>
@@ -165,6 +165,8 @@
 <ul class="list-unstyled">
 <li><a href="https://codecov.io/gh/ddsjoberg/rstudio.prefs?branch=main"><img src="https://codecov.io/gh/ddsjoberg/rstudio.prefs/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://github.com/ddsjoberg/rstudio.prefs/actions"><img src="https://github.com/ddsjoberg/rstudio.prefs/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://ddsjoberg.r-universe.dev/ui#builds"><img src="https://ddsjoberg.r-universe.dev/badges/rstudio.prefs" alt="r-universe"></a></li>
+<li><a href="https://CRAN.R-project.org/package=rstudio.prefs"><img src="https://www.r-pkg.org/badges/version/rstudio.prefs" alt="CRAN status"></a></li>
 </ul>
 </div>
 </div>
