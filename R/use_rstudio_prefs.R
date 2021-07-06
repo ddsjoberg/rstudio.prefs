@@ -67,13 +67,11 @@ use_rstudio_prefs <- function(..., .write_json = TRUE, .backup = TRUE) {
     purrr::update_list(!!!list_updated_prefs)
 
   if (isTRUE(.write_json)) {
-    if (.backup) backup_file(rstudio_config_path("rstudio-prefs.json"))
     write_json(
       final_prefs,
-      path = rstudio_config_path("rstudio-prefs.json")
+      path = rstudio_config_path("rstudio-prefs.json"),
+      .backup = .backup
     )
-    cli::cli_alert_success("File {.val {rstudio_config_path('rstudio-prefs.json')}} updated.")
-    cli::cli_ul("Restart RStudio for updates to take effect.")
     return(invisible(NULL))
   }
   else {

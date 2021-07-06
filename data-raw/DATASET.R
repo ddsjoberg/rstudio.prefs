@@ -1,8 +1,8 @@
 ## code to prepare `DATASET` dataset goes here
 
 devtools::load_all(".")
-df_rstudio_settings_table <-
-  fetch_rstudio_settings_table()
-attr(df_rstudio_settings_table, "date") <- Sys.Date()
+df_rstudio_prefs <-
+  fetch_rstudio_prefs()
+attr(df_rstudio_prefs, "date") <- Sys.Date()
 
-usethis::use_data(df_rstudio_settings_table, overwrite = TRUE, internal = TRUE)
+usethis::use_data(df_rstudio_prefs, overwrite = TRUE, internal = TRUE)

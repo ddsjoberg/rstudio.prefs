@@ -49,9 +49,9 @@ is_windows <- function(...) {
 #'
 #'  Function performs some checks of the user inputs, e.g. the name of the
 #'  preference is checked against the table from
-#'  `fetch_rstudio_settings_table()`...if name is not found a warning
+#'  `fetch_rstudio_prefs()`...if name is not found a warning
 #'  message is printed. The type/class of the input is also checked against
-#'  the expected class (again taken from `fetch_rstudio_settings_table()`)
+#'  the expected class (again taken from `fetch_rstudio_prefs()`)
 #'
 #' @param x list of user-passed preferences to update/modify
 #' @keywords internal
@@ -69,9 +69,9 @@ check_prefs_consistency <- function(x) {
 
   # check for prefs not listed -------------------------------------------------
   # first grab df of all prefs
-  df_all_prefs <- fetch_rstudio_settings_table()
+  df_all_prefs <- fetch_rstudio_prefs()
 
-  bad_pref_names <- names(x) %>% setdiff(df_all_prefs$Property)
+  bad_pref_names <- names(x) %>% setdiff(df_all_prefs$property)
   if (length(bad_pref_names) > 0L) {
     paste(
       "{.val {paste(bad_pref_names, sep = ', ')}}",
@@ -87,32 +87,37 @@ check_prefs_consistency <- function(x) {
     function(.x, .y) {
       pref_def_list <-
         df_all_prefs %>%
-        dplyr::filter(.data$Property %in% .y) %>%
+        dplyr::filter(.data$property %in% .y) %>%
         as.list()
 
       # if pref is not found in table, move on to the next checks
-      if (rlang::is_empty(pref_def_list$Property)) {
+      if (rlang::is_empty(pref_def_list$property)) {
         return(invisible(NULL))
       }
 
       # checking passed arguments against expected types
-      if (pref_def_list$r_type %in% "logical" && !rlang::is_logical(.x)) {
+      if (pref_def_list$class %in% "logical" && !rlang::is_logical(.x)) {
         paste("Expecting {.field {.y}} to be type {.val logical}, but it is not.",
               "Proceed with caution.") %>%
           cli::cli_alert_danger()
       }
-      else if (pref_def_list$r_type %in% "character" && !rlang::is_character(.x)) {
+      else if (pref_def_list$class %in% "character" && !rlang::is_character(.x)) {
         paste("Expecting {.field {.y}} to be type {.val character}, but it is not.",
               "Proceed with caution.") %>%
           cli::cli_alert_danger()
       }
-      else if (pref_def_list$r_type %in% "integer" && !rlang::is_integer(.x)) {
+      else if (pref_def_list$class %in% "integer" && !rlang::is_integerish(.x)) {
         paste("Expecting {.field {.y}} to be type {.val integer}, but it is not.",
               "Proceed with caution.") %>%
           cli::cli_alert_danger()
       }
-      else if (pref_def_list$r_type %in% "numeric" && !is.numeric(.x)) {
+      else if (pref_def_list$class %in% "numeric" && !is.numeric(.x)) {
         paste("Expecting {.field {.y}} to be type {.val numeric}, but it is not.",
+              "Proceed with caution.") %>%
+          cli::cli_alert_danger()
+      }
+      if (pref_def_list$is_scalar && length(.x) > 1) {
+        paste("Expecting {.field {.y}} to be length one, but it is not.",
               "Proceed with caution.") %>%
           cli::cli_alert_danger()
       }
@@ -129,6 +134,7 @@ check_prefs_consistency <- function(x) {
 #'
 #' @param file path and file location.
 #' @param quiet logical
+#' @keywords internal
 #' @noRd
 backup_file <- function(file, quiet = FALSE) {
   # if file does not exist, print msg and skip backup
@@ -182,8 +188,12 @@ backup_file <- function(file, quiet = FALSE) {
 #' @inheritParams jsonlite::write_json
 #'
 #' @return NULL
+#' @keywords internal
 #' @noRd
-write_json <- function(x, path) {
+write_json <- function(x, path, .backup) {
+  # backup file if requested ---------------------------------------------------
+  if (isTRUE(.backup)) backup_file(path)
+
   # if folder does not exist, create folder
   if(!fs::dir_exists(fs::path_dir(path))) {
     fs::dir_create(fs::path_dir(path))
@@ -196,4 +206,7 @@ write_json <- function(x, path) {
     pretty = TRUE,
     auto_unbox = TRUE
   )
+
+  cli::cli_alert_success("File {.val {path}} updated.")
+  cli::cli_ul("Restart RStudio for updates to take effect.")
 }

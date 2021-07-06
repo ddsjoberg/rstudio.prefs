@@ -1,6 +1,6 @@
-test_that("fetch_rstudio_settings_table works", {
+test_that("fetch_rstudio_prefs works", {
   expect_error(
-    fetch_rstudio_settings_table(),
+    fetch_rstudio_prefs(),
     NA
   )
 })
