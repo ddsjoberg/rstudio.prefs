@@ -10,11 +10,11 @@ status](https://www.r-pkg.org/badges/version/rstudio.prefs)](https://CRAN.R-proj
 
 As of RStudio v1.3, the preferences in the Global Options dialog (and a number of other preferences that aren’t) are now saved in simple, plain-text JSON files.
 The {rstudio.prefs} package provides an interface for working with these RStudio JSON preference files to easily make modifications without using the point-and-click option menus.
-This is particularly helpful when working on teams to ensure a unified experience across machines and utilizing settings for best practices.
+This is particularly helpful when working on teams to ensure a **unified experience** across machines and utilizing settings for **best practices**.
 
 ## Installation
 
-You can install the released version of {rstudio.prefs} from [GitHub](https://github.com/ddsjoberg/rstudio.prefs) with:
+You can install {rstudio.prefs} from [GitHub](https://github.com/ddsjoberg/rstudio.prefs) with:
 
 ``` r
 # install.packages('devtools')

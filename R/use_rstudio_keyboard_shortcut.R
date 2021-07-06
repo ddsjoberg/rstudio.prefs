@@ -29,11 +29,11 @@ use_rstudio_keyboard_shortcut <- function(..., .write_json = TRUE, .backup = TRU
 
   # save lists of shortcuts to add ---------------------------------------------
   i_list_updated_shortcuts <- rlang::dots_list(...)
-  if (!rlang::is_named(i_list_updated_shortcuts)) {
-    stop("Each argument must be named.", call. = FALSE)
-  }
 
-  # import existing addings ----------------------------------------------------
+  # checking inputs ------------------------------------------------------------
+  check_shortcut_consistency(i_list_updated_shortcuts)
+
+  # import existing addins -----------------------------------------------------
   if (!fs::dir_exists(rstudio_config_path("keybindings"))) {
     fs::dir_create(rstudio_config_path("keybindings"))
   }
@@ -60,31 +60,27 @@ use_rstudio_keyboard_shortcut <- function(..., .write_json = TRUE, .backup = TRU
     invert_list_names_and_values()
 
   if (isTRUE(.write_json)) {
-    backup_file(rstudio_config_path("keybindings/addins.json"))
     write_json(
       list_final_shortcuts,
-      path = rstudio_config_path("keybindings/addins.json")
+      path = rstudio_config_path("keybindings/addins.json"),
+      .backup = .backup
     )
 
-    # adding other files to 'keybindings' folder if they do not exist ------------
+    # adding other files to 'keybindings' folder if they do not exist ----------
     c("keybindings/editor_bindings.json", "keybindings/rstudio_bindings.json") %>%
       purrr::walk(
         function(.x) {
           if (!fs::file_exists(rstudio_config_path(.x))) {
-            write_json(NULL, path = rstudio_config_path(.x))
+            write_json(NULL, path = rstudio_config_path(.x), .backup = FALSE)
           }
         }
       )
-
-    cli::cli_alert_success("File {.val {rstudio_config_path('keybindings/addins.json')}} updated.")
-    cli::cli_ul("Restart RStudio for updates to take effect.")
     return(invisible(NULL))
   }
   else {
     return(list_final_shortcuts)
   }
 }
-
 
 #' Invert list names and values
 #'
@@ -98,4 +94,16 @@ use_rstudio_keyboard_shortcut <- function(..., .write_json = TRUE, .backup = TRU
 invert_list_names_and_values <- function(x) {
   if (rlang::is_empty(x)) return(x)
   names(x) %>% as.list() %>% stats::setNames(unlist(x))
+}
+
+check_shortcut_consistency <- function(x) {
+  if (!rlang::is_named(x)) {
+    stop("Each argument must be named.", call. = FALSE)
+  }
+  if (purrr::some(x, ~!rlang::is_string(.))) {
+    stop("Each argument value must be a string")
+  }
+  if (purrr::some(x, ~!rlang::is_function(rlang::parse_expr(.)))) {
+    stop("Each argument value must be a string of a function name.")
+  }
 }

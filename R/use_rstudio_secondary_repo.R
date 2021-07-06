@@ -76,13 +76,11 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
 
   # write updated JSON file ----------------------------------------------------
   if (isTRUE(.write_json)) {
-    backup_file(rstudio_config_path("rstudio-prefs.json"))
     write_json(
       list_current_prefs,
-      path = rstudio_config_path("rstudio-prefs.json")
+      path = rstudio_config_path("rstudio-prefs.json"),
+      .backup = .backup
     )
-    cli::cli_alert_success("File {.val {rstudio_config_path('rstudio-prefs.json')}} updated.")
-    cli::cli_ul("Restart RStudio for updates to take effect.")
     return(invisible(NULL))
   }
   else {
@@ -99,6 +97,7 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
 #'
 #' @param x secondary repository string from
 #' `"rstudio-prefs.json"` --> `"cran_mirror"` --> `"secondary"`
+#' @keywords internal
 #' @noRd
 repo_string_as_named_list <- function(x) {
   if (is.null(x)) return(list())

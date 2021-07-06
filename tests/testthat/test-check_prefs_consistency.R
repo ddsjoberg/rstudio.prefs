@@ -29,6 +29,20 @@ test_that("check_prefs_consistency() works", {
   # expect note about bad value
   expect_error(
     check_prefs_consistency(
+      list(margin_column = "hello")),
+    NA
+  )
+
+  # expect note about bad value
+  expect_error(
+    check_prefs_consistency(
+      list(margin_column = c(1L, 80L))),
+    NA
+  )
+
+  # expect note about bad value
+  expect_error(
+    check_prefs_consistency(
       list(font_size_points = "hello")),
     NA
   )
@@ -41,16 +55,4 @@ test_that("check_prefs_consistency() works", {
   )
 
 
-})
-
-
-test_that("invert_list_names_and_values() works", {
-  expect_equal(
-    invert_list_names_and_values(list(A = "a", B = "b")),
-    list(a = "A", b = "B")
-  )
-  expect_equal(
-    invert_list_names_and_values(list()),
-    list()
-  )
 })
