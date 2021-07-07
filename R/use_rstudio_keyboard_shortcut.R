@@ -103,7 +103,7 @@ check_shortcut_consistency <- function(x) {
   if (purrr::some(x, ~!rlang::is_string(.))) {
     stop("Each argument value must be a string")
   }
-  if (purrr::some(x, ~!rlang::is_function(rlang::parse_expr(.)))) {
+  if (purrr::some(x, ~!rlang::is_function(eval(rlang::parse_expr(.))))) {
     stop("Each argument value must be a string of a function name.")
   }
 }

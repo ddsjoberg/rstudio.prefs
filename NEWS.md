@@ -1,3 +1,7 @@
+# rstudio.prefs 0.1.4
+
+* Updates to the consistency checks in `use_rstudio_keyboard_shortcut()`.
+
 # rstudio.prefs 0.1.3
 
 * Function `fetch_rstudio_settings_table()` has been renamed to `fetch_rstudio_prefs()`. The function now returns tibble with lowercase column names and a `is_scalar` column has been added indicating whether the preference setting should be length one.
