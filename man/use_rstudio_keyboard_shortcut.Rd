@@ -19,16 +19,19 @@ them to file.}
 \item{.backup}{logical indicating whether to create a back-up of preferences
 file before it's updated. Default is \code{TRUE}}
 }
+\value{
+NULL, updates RStudio \code{addins.json} file
+}
 \description{
 This function updates the RStudio keyboard shortcuts saved in
 the \code{addins.json} file.
 }
 \examples{
-\donttest{\dontrun{
-use_rstudio_keyboard_shortcut(
-  "Ctrl+Shift+/" = "starter::make_path_norm"
-)
-}}
+if (interactive()) {
+  use_rstudio_keyboard_shortcut(
+    "Ctrl+Shift+/" = "rstudio.prefs::make_path_norm"
+  )
+}
 }
 \author{
 Daniel D. Sjoberg

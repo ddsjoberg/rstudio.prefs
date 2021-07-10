@@ -31,3 +31,6 @@ reference:
   - title: Helper Functions
   - contents:
       - fetch_rstudio_prefs
+  - title: RStudio Add-in
+  - contents:
+      - make_path_norm

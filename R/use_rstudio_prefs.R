@@ -15,23 +15,24 @@
 #' file before it's updated. Default is `TRUE`
 #'
 #' @export
+#' @returns NULL, updates RStudio `rstudio-prefs.json` file
 #' @author Daniel D. Sjoberg
 #'
 #' @examples
-#' \donttest{\dontrun{
-#' # pass preferences individually --------------
-#' use_rstudio_prefs(
-#'   always_save_history = FALSE,
-#'   rainbow_parentheses = TRUE
-#' )
+#' if (interactive()) {
+#'   # pass preferences individually --------------
+#'   use_rstudio_prefs(
+#'     always_save_history = FALSE,
+#'     rainbow_parentheses = TRUE
+#'   )
 #'
-#' # pass a list of preferences -----------------
-#' pref_list <-
-#'   list(always_save_history = FALSE,
-#'        rainbow_parentheses = TRUE)
+#'   # pass a list of preferences -----------------
+#'   pref_list <-
+#'     list(always_save_history = FALSE,
+#'          rainbow_parentheses = TRUE)
 #'
-#' use_rstudio_prefs(!!!pref_list)
-#' }}
+#'   use_rstudio_prefs(!!!pref_list)
+#' }
 
 use_rstudio_prefs <- function(..., .write_json = TRUE, .backup = TRUE) {
   # check whether fn may be used -----------------------------------------------
