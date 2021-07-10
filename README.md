@@ -29,9 +29,13 @@ library(rstudio.prefs)
 
 use_rstudio_prefs(
   always_save_history = FALSE,
+  save_workspace = FALSE,
+  load_workspace = FALSE,
   rainbow_parentheses = TRUE
-)
+)save_workspace
 #> - always_save_history   [TRUE   --> FALSE]
+#> - save_workspace        [TRUE   --> FALSE]
+#> - load_workspace        [TRUE   --> FALSE]
 #> - rainbow_parentheses   [FALSE  --> TRUE ]
 #> 
 #> Would you like to continue? [y/n] y
