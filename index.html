@@ -5,20 +5,20 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Functions to Set RStudio Preferences • rstudio.prefs</title>
+<title>Set RStudio Preferences • rstudio.prefs</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Functions to Set RStudio Preferences">
+<script src="pkgdown.js"></script><meta property="og:title" content="Set RStudio Preferences">
 <meta property="og:description" content="As of RStudio v1.3, the preferences in the Global Options
     dialog (and a number of other preferences that aren’t) are now saved
     in simple, plain-text JSON files. This package provides an interface
     for working with these RStudio JSON preference files to easily make
     modifications without using the point-and-click option menus. This is
     particularly helpful when working on teams to ensure a unified
-    experience across users and machines.">
+    experience across machines and utilizing settings for best practices.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -84,8 +84,11 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install {rstudio.prefs} from <a href="https://github.com/ddsjoberg/rstudio.prefs">GitHub</a> with:</p>
+<p>Install {rstudio.prefs} from CRAN with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rstudio.prefs"</span><span class="op">)</span></code></pre></div>
+<p>Install the development version of {rstudio.prefs} from <a href="https://github.com/ddsjoberg/rstudio.prefs">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages('devtools')</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ddsjoberg/rstudio.prefs"</span><span class="op">)</span></code></pre></div>
 </div>
@@ -93,22 +96,25 @@
 <h2 class="hasAnchor">
 <a href="#examples" class="anchor"></a>Examples</h2>
 <p>Update the RStudio default preferences. Full list of modifiable settings here: <a href="https://docs.rstudio.com/ide/server-pro/session-user-settings.html" class="uri">https://docs.rstudio.com/ide/server-pro/session-user-settings.html</a></p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ddsjoberg/rstudio.prefs">rstudio.prefs</a></span><span class="op">)</span>
-
-<span class="fu"><a href="reference/use_rstudio_prefs.html">use_rstudio_prefs</a></span><span class="op">(</span>
-  always_save_history <span class="op">=</span> <span class="cn">FALSE</span>,
-  rainbow_parentheses <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-<span class="co">#&gt; - always_save_history   [TRUE   --&gt; FALSE]</span>
-<span class="co">#&gt; - rainbow_parentheses   [FALSE  --&gt; TRUE ]</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Would you like to continue? [y/n] y</span>
-<span class="co">#&gt; v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs 2021-06-20.json' saved as backup.</span>
-<span class="co">#&gt; v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs.json' updated.</span>
-<span class="co">#&gt; * Restart RStudio for updates to take effect.</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">library</span>(rstudio.prefs)</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">use_rstudio_prefs</span>(</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="dt">always_save_history =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="dt">save_workspace =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="dt">load_workspace =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb3-7"><a href="#cb3-7"></a>  <span class="dt">rainbow_parentheses =</span> <span class="ot">TRUE</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>)save_workspace</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt; - always_save_history   [TRUE   --&gt; FALSE]</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt; - save_workspace        [TRUE   --&gt; FALSE]</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt; - load_workspace        [TRUE   --&gt; FALSE]</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; - rainbow_parentheses   [FALSE  --&gt; TRUE ]</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co">#&gt; </span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; Would you like to continue? [y/n] y</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="co">#&gt; v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs 2021-06-20.json' saved as backup.</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs.json' updated.</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt; * Restart RStudio for updates to take effect.</span></span></code></pre></div>
 <p>Add secondary repositories to the <strong>ROpenSci</strong> and <strong>ddsjoberg</strong> R-Universes. This is also helpful for adding secondary RStudio Package Manager repositories.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/use_rstudio_secondary_repo.html">use_rstudio_secondary_repo</a></span><span class="op">(</span>
   ropensci <span class="op">=</span> <span class="st">"https://ropensci.r-universe.dev"</span>,
   ddsjoberg <span class="op">=</span> <span class="st">"https://ddsjoberg.r-universe.dev"</span>
@@ -121,7 +127,7 @@
 <span class="co">#&gt; v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs.json' updated.</span>
 <span class="co">#&gt; * Restart RStudio for updates to take effect.</span></code></pre></div>
 <p>Use <code><a href="reference/use_rstudio_keyboard_shortcut.html">use_rstudio_keyboard_shortcut()</a></code> to programmatically add keyboard shortcuts for add-ins.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/use_rstudio_keyboard_shortcut.html">use_rstudio_keyboard_shortcut</a></span><span class="op">(</span>
   <span class="st">"Ctrl+Shift+/"</span> <span class="op">=</span> <span class="st">"starter::make_path_norm"</span>
 <span class="op">)</span>
@@ -156,7 +162,7 @@
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="http://www.danieldsjoberg.com/">Daniel D. Sjoberg</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-0862-2018" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<a href="http://www.danieldsjoberg.com/">Daniel D. Sjoberg</a> <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0003-0862-2018" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
