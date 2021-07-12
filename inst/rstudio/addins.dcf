@@ -1,0 +1,4 @@
+Name: Make Path Norm
+Description: Executes fs::path_norm() on selected text.
+Binding: make_path_norm
+Interactive: false

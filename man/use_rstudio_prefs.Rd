@@ -18,6 +18,9 @@ them to file.}
 \item{.backup}{logical indicating whether to create a back-up of preferences
 file before it's updated. Default is \code{TRUE}}
 }
+\value{
+NULL, updates RStudio \code{rstudio-prefs.json} file
+}
 \description{
 This function updates the RStudio preferences saved in
 the \code{rstudio-prefs.json} file. A full listing of preferences that may be
@@ -25,20 +28,20 @@ modified are listed here
 https://docs.rstudio.com/ide/server-pro/session-user-settings.html
 }
 \examples{
-\donttest{\dontrun{
-# pass preferences individually --------------
-use_rstudio_prefs(
-  always_save_history = FALSE,
-  rainbow_parentheses = TRUE
-)
+if (interactive()) {
+  # pass preferences individually --------------
+  use_rstudio_prefs(
+    always_save_history = FALSE,
+    rainbow_parentheses = TRUE
+  )
 
-# pass a list of preferences -----------------
-pref_list <-
-  list(always_save_history = FALSE,
-       rainbow_parentheses = TRUE)
+  # pass a list of preferences -----------------
+  pref_list <-
+    list(always_save_history = FALSE,
+         rainbow_parentheses = TRUE)
 
-use_rstudio_prefs(!!!pref_list)
-}}
+  use_rstudio_prefs(!!!pref_list)
+}
 }
 \author{
 Daniel D. Sjoberg

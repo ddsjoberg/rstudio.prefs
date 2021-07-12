@@ -10,15 +10,16 @@
 #' @inheritParams use_rstudio_prefs
 #'
 #' @export
+#' @returns NULL, updates RStudio `rstudio-prefs.json` file
 #' @author Daniel D. Sjoberg
 #'
 #' @examples
-#' \donttest{\dontrun{
-#' use_rstudio_secondary_repo(
-#'   ropensci = "https://ropensci.r-universe.dev",
-#'   ddsjoberg = "https://ddsjoberg.r-universe.dev"
-#' )
-#' }}
+#' if (interactive()) {
+#'   use_rstudio_secondary_repo(
+#'     ropensci = "https://ropensci.r-universe.dev",
+#'     ddsjoberg = "https://ddsjoberg.r-universe.dev"
+#'   )
+#' }
 
 use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) {
   # check whether fn may be used -----------------------------------------------

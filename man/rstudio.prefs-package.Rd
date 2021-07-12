@@ -12,7 +12,7 @@ As of RStudio v1.3, the preferences in the Global Options
     for working with these RStudio JSON preference files to easily make
     modifications without using the point-and-click option menus. This is
     particularly helpful when working on teams to ensure a unified
-    experience across users and machines.
+    experience across machines and utilizing settings for best practices.
 }
 \seealso{
 Useful links:
@@ -24,7 +24,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Daniel D. Sjoberg \email{danield.sjoberg@gmail.com} (\href{https://orcid.org/0000-0003-0862-2018}{ORCID})
+\strong{Maintainer}: Daniel D. Sjoberg \email{danield.sjoberg@gmail.com} (\href{https://orcid.org/0000-0003-0862-2018}{ORCID}) [copyright holder]
 
 }
 \keyword{internal}

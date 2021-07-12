@@ -9,14 +9,15 @@
 #' @inheritParams use_rstudio_prefs
 #'
 #' @export
+#' @returns NULL, updates RStudio `addins.json` file
 #' @author Daniel D. Sjoberg
 #'
 #' @examples
-#' \donttest{\dontrun{
-#' use_rstudio_keyboard_shortcut(
-#'   "Ctrl+Shift+/" = "starter::make_path_norm"
-#' )
-#' }}
+#' if (interactive()) {
+#'   use_rstudio_keyboard_shortcut(
+#'     "Ctrl+Shift+/" = "rstudio.prefs::make_path_norm"
+#'   )
+#' }
 
 use_rstudio_keyboard_shortcut <- function(..., .write_json = TRUE, .backup = TRUE) {
   # check whether fn may be used -----------------------------------------------
