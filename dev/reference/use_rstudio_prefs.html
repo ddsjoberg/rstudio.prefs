@@ -75,7 +75,7 @@ https://docs.rstudio.com/ide/server-pro/session-user-settings.html" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudio.prefs</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.4.9000</span>
       </span>
     </div>
 
@@ -150,24 +150,27 @@ file before it's updated. Default is <code>TRUE</code></p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>NULL, updates RStudio <code>rstudio-prefs.json</code> file</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Daniel D. Sjoberg</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'># pass preferences individually --------------</span>
-<span class='fu'>use_rstudio_prefs</span><span class='op'>(</span>
-  always_save_history <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  rainbow_parentheses <span class='op'>=</span> <span class='cn'>TRUE</span>
-<span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='co'># pass preferences individually --------------</span>
+  <span class='fu'>use_rstudio_prefs</span><span class='op'>(</span>
+    always_save_history <span class='op'>=</span> <span class='cn'>FALSE</span>,
+    rainbow_parentheses <span class='op'>=</span> <span class='cn'>TRUE</span>
+  <span class='op'>)</span>
 
-<span class='co'># pass a list of preferences -----------------</span>
-<span class='va'>pref_list</span> <span class='op'>&lt;-</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>always_save_history <span class='op'>=</span> <span class='cn'>FALSE</span>,
-       rainbow_parentheses <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+  <span class='co'># pass a list of preferences -----------------</span>
+  <span class='va'>pref_list</span> <span class='op'>&lt;-</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>always_save_history <span class='op'>=</span> <span class='cn'>FALSE</span>,
+         rainbow_parentheses <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='fu'>use_rstudio_prefs</span><span class='op'>(</span><span class='op'>!</span><span class='op'>!</span><span class='op'>!</span><span class='va'>pref_list</span><span class='op'>)</span>
+  <span class='fu'>use_rstudio_prefs</span><span class='op'>(</span><span class='op'>!</span><span class='op'>!</span><span class='op'>!</span><span class='va'>pref_list</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>
