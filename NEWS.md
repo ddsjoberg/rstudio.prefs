@@ -1,5 +1,7 @@
 # rstudio.prefs (development version)
 
+* Updates to documentation.
+
 # rstudio.prefs 0.1.4
 
 * Added RStudio add-in function `make_path_norm()`.
