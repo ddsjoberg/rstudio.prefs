@@ -38,7 +38,7 @@ use_rstudio_prefs(
   save_workspace = FALSE,
   load_workspace = FALSE,
   rainbow_parentheses = TRUE
-)save_workspace
+)
 #> - always_save_history   [TRUE   --> FALSE]
 #> - save_workspace        [TRUE   --> FALSE]
 #> - load_workspace        [TRUE   --> FALSE]
