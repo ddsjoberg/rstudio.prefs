@@ -42,6 +42,7 @@ pretty_print_updates <- function(old, new) {
   }
 
   # print updates --------------------------------------------------------------
+  cat("# UPDATES ==============================================\n")
   df_updates %>%
     dplyr::mutate(message = paste0(
       "- ",

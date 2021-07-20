@@ -18,6 +18,8 @@
 #' fetch_rstudio_prefs()
 fetch_rstudio_prefs <- function() {
   url <- "https://docs.rstudio.com/ide/server-pro/session-user-settings.html"
+  cli::cli_alert_success("Downloading most recent {.field RStudio} settings")
+  cat("\n")
   tryCatch(
     url %>%
       rvest::read_html() %>%
@@ -31,7 +33,7 @@ fetch_rstudio_prefs <- function() {
             .data$type %in% "boolean" ~ "logical",
             .data$type %in% "integer" ~ "integer",
             .data$type %in% "number" ~ "numeric",
-            .data$type %in% "array" ~ "character",
+            # .data$type %in% "array" ~ "character", # need to do some testing on array types
             startsWith(.data$type, "string") ~ "character"
           ),
         is_scalar =
@@ -41,15 +43,9 @@ fetch_rstudio_prefs <- function() {
       # not sure how to deal with the other types, so ignoring
       dplyr::filter(!is.na(.data$class)),
     error = function(e) {
-      paste(
-        "Error downloading most recent RStudio settings",
-        "from {.field {url}}"
-      ) %>%
+      "Error downloading most recent settings from {.field {url}}" %>%
         cli::cli_alert_danger()
-      paste(
-        "Using settings downloaded",
-        "{.val {as.character(attr(df_rstudio_prefs, 'date'))}}"
-      ) %>%
+      "Using settings downloaded {.val {as.character(attr(df_rstudio_prefs, 'date'))}}" %>%
         cli::cli_alert_success()
       df_rstudio_prefs
     }

@@ -2,6 +2,12 @@
 
 * Updates to documentation.
 
+* Added additional unit tests.
+
+* Removed type 'array' from `fetch_rstudio_prefs()`. This type needs further testing before it's rolled out. Users can still pass array updates, but they will see a note about proceeding with caution.
+
+* Updates to the way the preferences are printed to the console before being written to file.
+
 # rstudio.prefs 0.1.4
 
 * Added RStudio add-in function `make_path_norm()`.

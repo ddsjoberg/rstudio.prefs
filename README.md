@@ -34,12 +34,14 @@ library(rstudio.prefs)
 
 use_rstudio_prefs(
   always_save_history = FALSE,
-  save_workspace = FALSE,
+  save_workspace = "never",
   load_workspace = FALSE,
   rainbow_parentheses = TRUE
 )
+#> √ Downloading most recent RStudio settings
+#>
 #> - always_save_history   [TRUE   --> FALSE]
-#> - save_workspace        [TRUE   --> FALSE]
+#> - save_workspace        [ask    --> never]
 #> - load_workspace        [TRUE   --> FALSE]
 #> - rainbow_parentheses   [FALSE  --> TRUE ]
 #> 
