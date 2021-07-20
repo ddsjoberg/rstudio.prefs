@@ -46,8 +46,8 @@ use_rstudio_prefs(
 #> - rainbow_parentheses   [FALSE  --> TRUE ]
 #> 
 #> Would you like to continue? [y/n] y
-#> v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs 2021-06-20.json' saved as backup.
-#> v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs.json' updated.
+#> √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs 2021-06-20.json' saved as backup.
+#> √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs.json' updated.
 #> * Restart RStudio for updates to take effect.
 ```
 
@@ -63,8 +63,8 @@ use_rstudio_secondary_repo(
 #> - ddsjoberg   [*  --> https://ddsjoberg.r-universe.dev]
 #> 
 #> Would you like to continue? [y/n] y
-#> v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs 2021-06-20.json' saved as backup.
-#> v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs.json' updated.
+#> √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs 2021-06-20.json' saved as backup.
+#> √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs.json' updated.
 #> * Restart RStudio for updates to take effect.
 ```
 
@@ -77,7 +77,7 @@ use_rstudio_keyboard_shortcut(
 #> - Ctrl+Shift+/   [*  --> starter::make_path_norm]
 #> 
 #> Would you like to continue? [y/n] y
-#> v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/keybindings/addins 2021-06-20.json' saved as backup.
-#> v File 'C:/Users/sjobergd/AppData/Roaming/RStudio/keybindings/addins.json' updated.
+#> √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/keybindings/addins 2021-06-20.json' saved as backup.
+#> √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/keybindings/addins.json' updated.
 #> * Restart RStudio for updates to take effect.
 ```

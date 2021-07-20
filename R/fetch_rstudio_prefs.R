@@ -47,6 +47,8 @@ fetch_rstudio_prefs <- function() {
         cli::cli_alert_danger()
       "Using settings downloaded {.val {as.character(attr(df_rstudio_prefs, 'date'))}}" %>%
         cli::cli_alert_success()
+      cat("\n")
+
       df_rstudio_prefs
     }
   )
