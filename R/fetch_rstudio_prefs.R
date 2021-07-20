@@ -18,7 +18,7 @@
 #' fetch_rstudio_prefs()
 fetch_rstudio_prefs <- function() {
   url <- "https://docs.rstudio.com/ide/server-pro/session-user-settings.html"
-  cli::cli_alert_success("Downloading most recent {.field RStudio} settings")
+  cli::cli_alert_success("Downloading list of available {.field RStudio} settings")
   cat("\n")
   tryCatch(
     url %>%

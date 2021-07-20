@@ -38,7 +38,7 @@ use_rstudio_prefs(
   load_workspace = FALSE,
   rainbow_parentheses = TRUE
 )
-#> √ Downloading most recent RStudio settings
+#> √ Downloading list of available RStudio settings
 #>
 #> - always_save_history   [TRUE   --> FALSE]
 #> - save_workspace        [ask    --> never]
