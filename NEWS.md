@@ -2,6 +2,8 @@
 
 * Updates to documentation.
 
+* Improved error messaging.
+
 * Added additional unit tests.
 
 * Removed type 'array' from `fetch_rstudio_prefs()`. This type needs further testing before it's rolled out. Users can still pass array updates, but they will see a note about proceeding with caution.
