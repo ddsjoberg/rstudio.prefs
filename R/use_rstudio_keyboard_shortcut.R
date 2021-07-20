@@ -99,12 +99,12 @@ invert_list_names_and_values <- function(x) {
 
 check_shortcut_consistency <- function(x) {
   if (!rlang::is_named(x)) {
-    stop("Each argument must be named.", call. = FALSE)
+    rlang::abort("Each argument must be named.")
   }
   if (purrr::some(x, ~!rlang::is_string(.))) {
-    stop("Each argument value must be a string")
+    rlang::abort("Each argument value must be a string")
   }
   if (purrr::some(x, ~!rlang::is_function(eval(rlang::parse_expr(.))))) {
-    stop("Each argument value must be a string of a function name.")
+    rlang::abort("Each argument value must be a string of a function name.")
   }
 }

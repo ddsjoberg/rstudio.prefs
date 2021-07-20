@@ -33,7 +33,7 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
   # save lists of existing and updated repos -----------------------------------
   user_passed_updated_repos <- rlang::dots_list(...)
   if (!rlang::is_named(user_passed_updated_repos)) {
-    stop("Each argument must be named.")
+    rlang::abort("Each argument must be named.")
   }
   list_current_prefs <-
     jsonlite::fromJSON(rstudio_config_path("rstudio-prefs.json"))

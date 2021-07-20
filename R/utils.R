@@ -64,7 +64,7 @@ check_prefs_consistency <- function(x) {
       paste(names(x)[names(x) %>% duplicated() %>% which()] %>% unique(),
             collapse = ", ")
     ) %>%
-      stop(call. = FALSE)
+      rlang::abort()
   }
 
   # check for prefs not listed -------------------------------------------------
