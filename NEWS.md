@@ -10,13 +10,13 @@
 
 * Updates to the way the preferences are printed to the console before being written to file.
 
+* Updates to the consistency checks in `use_rstudio_keyboard_shortcut()`.
+
 # rstudio.prefs 0.1.4
 
 * Added RStudio add-in function `make_path_norm()`.
 
 * Documentation updates and tidying up for CRAN release.
-
-* Updates to the consistency checks in `use_rstudio_keyboard_shortcut()`.
 
 # rstudio.prefs 0.1.3
 
