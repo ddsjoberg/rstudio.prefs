@@ -1,3 +1,5 @@
+# rstudio.prefs (development version)
+
 # rstudio.prefs 0.1.5
 
 * Updates to documentation.
