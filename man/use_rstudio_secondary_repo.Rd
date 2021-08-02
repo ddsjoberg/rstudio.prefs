@@ -27,6 +27,12 @@ the \code{rstudio-prefs.json} file to include the secondary repositories
 passed my the user. If a new name for an existing repository is
 passed by the user, the name will be updated in the JSON file.
 }
+\details{
+A note for users outside of the USA.
+If the country in \code{.$cran_mirror$country} has not been previously recorded
+in the JSON preferences file (typically, auto set by RStudio),
+the \code{use_rstudio_secondary_repo()} function will set \code{"country" = "us"}.
+}
 \examples{
 if (interactive()) {
   use_rstudio_secondary_repo(

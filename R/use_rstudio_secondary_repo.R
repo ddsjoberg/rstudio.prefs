@@ -5,6 +5,11 @@
 #' passed my the user. If a new name for an existing repository is
 #' passed by the user, the name will be updated in the JSON file.
 #'
+#' A note for users outside of the USA.
+#' If the country in `.$cran_mirror$country` has not been previously recorded
+#' in the JSON preferences file (typically, auto set by RStudio),
+#' the `use_rstudio_secondary_repo()` function will set `"country" = "us"`.
+#'
 #' @param ... series of secondary repositories
 #' `ropensci = "https://ropensci.r-universe.dev"`
 #' @inheritParams use_rstudio_prefs

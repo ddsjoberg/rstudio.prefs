@@ -1,5 +1,7 @@
 # rstudio.prefs (development version)
 
+* Updated documentation for `use_rstudio_secondary_repo()` to indicate when the country will be set to US.
+
 # rstudio.prefs 0.1.5
 
 * Updates to documentation.
