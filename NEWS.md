@@ -1,5 +1,9 @@
 # rstudio.prefs (development version)
 
+* Exporting utility functions `rstudio_config_path()` and `check_min_rstudio_version()`.
+
+* Repositories may now be removed with `use_rstudio_secondary_repo(repo_name = NULL)`.
+
 * Updated documentation for `use_rstudio_secondary_repo()` to indicate when the country will be set to US.
 
 # rstudio.prefs 0.1.5

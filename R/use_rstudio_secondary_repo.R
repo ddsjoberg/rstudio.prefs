@@ -59,12 +59,16 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
   current_repos <-
     repo_string_as_named_list(list_current_prefs$cran_mirror$secondary)
 
-  # if one of the new repos has the same value but new name as a previous
-  # then add a new NULL value to the updates list
   user_passed_updated_repos <-
-    current_repos[unlist(current_repos) %in% unlist(user_passed_updated_repos)] %>%
-    purrr::map(~NULL) %>%
-    purrr::update_list(!!!user_passed_updated_repos)
+    # if one of the new repos has the same value but new name as a previous
+    # then add a new NULL value to the updates list
+    purrr::map(current_repos[unlist(current_repos) %in% unlist(user_passed_updated_repos)], ~NULL) %>%
+    # set any existing named repos with same name as passed list to NULL
+    purrr::list_modify(
+      !!!purrr::map(current_repos[names(current_repos) %in% names(user_passed_updated_repos)], ~NULL)
+    ) %>%
+    # add user-defined repos to the list
+    purrr::update_list(!!!purrr::compact(user_passed_updated_repos))
 
   # print updates that will be made --------------------------------------------
   pretty_print_updates(current_repos, user_passed_updated_repos)
