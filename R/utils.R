@@ -3,8 +3,14 @@
 #' Return error if minimum version requirement not met.
 #'
 #' @param version string of min required version number
-#' @keywords internal
-#' @noRd
+#' @export
+#' @returns path string to RStudio `rstudio-prefs.json` file
+#' @author Daniel D. Sjoberg
+#'
+#' @examples
+#' if (interactive()) {
+#'   check_min_rstudio_version()
+#' }
 check_min_rstudio_version <- function(version) {
   if (rstudioapi::getVersion() < version) {
     paste("RStudio version", version, "or greater required.") %>%
@@ -16,11 +22,16 @@ check_min_rstudio_version <- function(version) {
 #'
 #' Copy of the internal function `usethis:::rstudio_config_path()`
 #'
-#' @param ... strings added to the RStduio config path
+#' @param ... strings added to the RStudio config path
 #'
-#' @return string path
-#' @keywords internal
-#' @noRd
+#' @export
+#' @returns path string to RStudio `rstudio-prefs.json` file
+#' @author Daniel D. Sjoberg
+#'
+#' @examples
+#' if (interactive()) {
+#'   rstudio_config_path()
+#' }
 rstudio_config_path <- function(...) {
   if (is_windows()) {
     base <- rappdirs::user_config_dir("RStudio", appauthor = NULL)

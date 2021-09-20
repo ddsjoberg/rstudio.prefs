@@ -34,3 +34,7 @@ reference:
   - title: RStudio Add-ins
   - contents:
       - make_path_norm
+  - title: Utilities
+  - contents:
+      - rstudio_config_path
+      - check_min_rstudio_version
