@@ -1,4 +1,4 @@
-# rstudio.prefs (development version)
+# rstudio.prefs 0.1.6
 
 * Exporting utility functions `rstudio_config_path()` and `check_min_rstudio_version()`.
 
