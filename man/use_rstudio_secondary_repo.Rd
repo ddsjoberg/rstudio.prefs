@@ -7,7 +7,7 @@
 use_rstudio_secondary_repo(..., .write_json = TRUE, .backup = TRUE)
 }
 \arguments{
-\item{...}{series of secondary repositories
+\item{...}{series of named secondary repositories, e.g.
 \code{ropensci = "https://ropensci.r-universe.dev"}}
 
 \item{.write_json}{logical indicating whether to update and overwrite

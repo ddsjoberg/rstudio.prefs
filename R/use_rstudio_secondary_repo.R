@@ -10,7 +10,7 @@
 #' in the JSON preferences file (typically, auto set by RStudio),
 #' the `use_rstudio_secondary_repo()` function will set `"country" = "us"`.
 #'
-#' @param ... series of secondary repositories
+#' @param ... series of named secondary repositories, e.g.
 #' `ropensci = "https://ropensci.r-universe.dev"`
 #' @inheritParams use_rstudio_prefs
 #'
