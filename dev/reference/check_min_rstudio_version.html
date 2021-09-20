@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • rstudio.prefs</title>
+<title>Check Min RStudio Version — check_min_rstudio_version • rstudio.prefs</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Check Min RStudio Version — check_min_rstudio_version" />
+<meta property="og:description" content="Return error if minimum version requirement not met." />
 
 
 <meta name="robots" content="noindex">
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -110,84 +111,44 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/ddsjoberg/rstudio.prefs/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Check Min RStudio Version</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ddsjoberg/rstudio.prefs/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
+    <div class="hidden name"><code>check_min_rstudio_version.Rd</code></div>
     </div>
 
-    <div id="rstudioprefs-development-version" class="section level1">
-<h1 class="page-header" data-toc-text="development version">
-<a href="#rstudioprefs-development-version" class="anchor"></a>rstudio.prefs (development version)<small> Unreleased </small>
-</h1>
-<ul>
-<li><p>Exporting utility functions <code><a href="../reference/rstudio_config_path.html">rstudio_config_path()</a></code> and <code><a href="../reference/check_min_rstudio_version.html">check_min_rstudio_version()</a></code>.</p></li>
-<li><p>Repositories may now be removed with <code><a href="../reference/use_rstudio_secondary_repo.html">use_rstudio_secondary_repo(repo_name = NULL)</a></code>.</p></li>
-<li><p>Updated documentation for <code><a href="../reference/use_rstudio_secondary_repo.html">use_rstudio_secondary_repo()</a></code> to indicate when the country will be set to US.</p></li>
-</ul>
-</div>
-    <div id="rstudioprefs-015" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.5">
-<a href="#rstudioprefs-015" class="anchor"></a>rstudio.prefs 0.1.5<small> 2021-07-22 </small>
-</h1>
-<ul>
-<li><p>Updates to documentation.</p></li>
-<li><p>Improved error messaging.</p></li>
-<li><p>Added additional unit tests.</p></li>
-<li><p>Removed type ‘array’ from <code><a href="../reference/fetch_rstudio_prefs.html">fetch_rstudio_prefs()</a></code>. This type needs further testing before it’s rolled out. Users can still pass array updates, but they will see a note about proceeding with caution.</p></li>
-<li><p>Updates to the way the preferences are printed to the console before being written to file.</p></li>
-<li><p>Updates to the consistency checks in <code><a href="../reference/use_rstudio_keyboard_shortcut.html">use_rstudio_keyboard_shortcut()</a></code>.</p></li>
-</ul>
-</div>
-    <div id="rstudioprefs-014" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.4">
-<a href="#rstudioprefs-014" class="anchor"></a>rstudio.prefs 0.1.4<small> 2021-07-12 </small>
-</h1>
-<ul>
-<li><p>Added RStudio add-in function <code><a href="../reference/make_path_norm.html">make_path_norm()</a></code>.</p></li>
-<li><p>Documentation updates and tidying up for CRAN release.</p></li>
-</ul>
-</div>
-    <div id="rstudioprefs-013" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.3">
-<a href="#rstudioprefs-013" class="anchor"></a>rstudio.prefs 0.1.3<small> Unreleased </small>
-</h1>
-<ul>
-<li>Function <code>fetch_rstudio_settings_table()</code> has been renamed to <code><a href="../reference/fetch_rstudio_prefs.html">fetch_rstudio_prefs()</a></code>. The function now returns tibble with lowercase column names and a <code>is_scalar</code> column has been added indicating whether the preference setting should be length one.</li>
-</ul>
-</div>
-    <div id="rstudioprefs-012" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.2">
-<a href="#rstudioprefs-012" class="anchor"></a>rstudio.prefs 0.1.2<small> Unreleased </small>
-</h1>
-<ul>
-<li><p>Updated API for <code><a href="../reference/use_rstudio_keyboard_shortcut.html">use_rstudio_keyboard_shortcut()</a></code> to use the keyboard shortcut as the named argument and the function that will be executed as the argument value.</p></li>
-<li><p>Performing a check that the directory exists before attempting to write JSON file. If directory does not exist, it is created.</p></li>
-<li><p>Bug fix for file back-up. If file does not already exist, the back-up attempt is skipped.</p></li>
-</ul>
-</div>
-    <div id="rstudioprefs-011" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.1">
-<a href="#rstudioprefs-011" class="anchor"></a>rstudio.prefs 0.1.1<small> Unreleased </small>
-</h1>
-<ul>
-<li>Bug fix when none of the new preferences are currently listed in the preferences JSON file.</li>
-</ul>
-</div>
-    <div id="rstudioprefs-010" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.0">
-<a href="#rstudioprefs-010" class="anchor"></a>rstudio.prefs 0.1.0<small> Unreleased </small>
-</h1>
-<ul>
-<li>First release</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Return error if minimum version requirement not met.</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>check_min_rstudio_version</span><span class='op'>(</span><span class='va'>version</span><span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>version</th>
+      <td><p>string of min required version number</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>path string to RStudio <code>rstudio-prefs.json</code> file</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Daniel D. Sjoberg</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'>check_min_rstudio_version</span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
 
 
