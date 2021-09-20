@@ -23,7 +23,8 @@ pretty_print_updates <- function(old, new) {
     ) %>%
     dplyr::mutate(
       old_value = ifelse(is.na(.data$old_value), "*", .data$old_value),
-      new_value = ifelse(is.na(.data$new_value), "*", .data$new_value)
+      new_value = ifelse(is.na(.data$new_value), "*", .data$new_value),
+      updated = .data$old_value != .data$new_value
     )
 
   # pad each column with trailing spaces ---------------------------------------
@@ -31,7 +32,7 @@ pretty_print_updates <- function(old, new) {
   length_total[["pref"]] <- length_total[["pref"]] + 3
   length_total[["old_value"]] <- length_total[["old_value"]] + 1
   for (i in seq_len(nrow(df_updates))) {
-    for (col in names(df_updates)) {
+    for (col in setdiff(names(df_updates), "updated")) {
       df_updates[i, col] <-
         paste0(
           df_updates[i, col],
@@ -42,19 +43,39 @@ pretty_print_updates <- function(old, new) {
   }
 
   # print updates --------------------------------------------------------------
-  cat("# UPDATES ==============================================\n")
-  df_updates %>%
-    dplyr::mutate(message = paste0(
-      "- ",
-      .data$pref, "[",
-      .data$old_value, " --> ",
-      .data$new_value,
-      "]"
-    )) %>%
-    dplyr::pull(.data$message) %>%
-    paste(collapse = "\n") %>%
-    cat()
-  cat("\n\n")
+  if (sum(!df_updates$updated) > 0L) {
+    cat("# NO CHANGE ============================================\n")
+    df_updates %>%
+      dplyr::filter(!.data$updated) %>%
+      dplyr::mutate(message = paste0(
+        "- ",
+        .data$pref, "[",
+        .data$old_value, " --> ",
+        .data$new_value,
+        "]"
+      )) %>%
+      dplyr::pull(.data$message) %>%
+      paste(collapse = "\n") %>%
+      cat()
+    cat("\n\n")
+  }
+
+  if (sum(df_updates$updated) > 0L) {
+    cat("# UPDATES ==============================================\n")
+    df_updates %>%
+      dplyr::filter(.data$updated) %>%
+      dplyr::mutate(message = paste0(
+        "- ",
+        .data$pref, "[",
+        .data$old_value, " --> ",
+        .data$new_value,
+        "]"
+      )) %>%
+      dplyr::pull(.data$message) %>%
+      paste(collapse = "\n") %>%
+      cat()
+    cat("\n\n")
+  }
 }
 
 # # CRAN ===============================
