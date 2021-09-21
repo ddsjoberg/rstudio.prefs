@@ -109,8 +109,14 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
 #'
 #' @param x secondary repository string from
 #' `"rstudio-prefs.json"` --> `"cran_mirror"` --> `"secondary"`
-#' @keywords internal
-#' @noRd
+#' @export
+#' @returns named list
+#' @author Daniel D. Sjoberg
+#'
+#' @examples
+#' repo_string_as_named_list(
+#'   'ropensci|https://ropensci.r-universe.dev|ddsjoberg|https://ddsjoberg.r-universe.dev'
+#' )
 repo_string_as_named_list <- function(x) {
   if (is.null(x)) return(list())
   # split string by |

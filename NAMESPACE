@@ -3,6 +3,7 @@
 export(check_min_rstudio_version)
 export(fetch_rstudio_prefs)
 export(make_path_norm)
+export(repo_string_as_named_list)
 export(rstudio_config_path)
 export(use_rstudio_keyboard_shortcut)
 export(use_rstudio_prefs)
