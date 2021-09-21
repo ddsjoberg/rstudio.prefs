@@ -70,7 +70,7 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
     purrr::compact() %>%
     {stats::setNames(rep_len(list(NULL), length.out = length(.)), .)} %>%
     # add user-defined repos to the list
-    purrr::update_list(!!!purrr::compact(user_passed_updated_repos))
+    purrr::list_modify(!!!purrr::compact(user_passed_updated_repos))
 
   # print updates that will be made --------------------------------------------
   pretty_print_updates(current_repos, user_passed_updated_repos)
