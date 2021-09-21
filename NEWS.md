@@ -2,6 +2,8 @@
 
 * Exporting utility function `repo_string_as_named_list()`.
 
+* Fixing bug in `use_rstudio_secondary_repo()` where existing secondary repositories could not be deleted (i.e. set to `NULL`).
+
 # rstudio.prefs 0.1.6
 
 * Exporting utility functions `rstudio_config_path()` and `check_min_rstudio_version()`.
