@@ -1,4 +1,4 @@
-# rstudio.prefs (development version)
+# rstudio.prefs 0.1.7
 
 * Exporting utility function `repo_string_as_named_list()`.
 
