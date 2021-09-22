@@ -28,20 +28,20 @@ modified are listed here
 https://docs.rstudio.com/ide/server-pro/session-user-settings.html
 }
 \examples{
-if (interactive()) {
-  # pass preferences individually --------------
-  use_rstudio_prefs(
-    always_save_history = FALSE,
-    rainbow_parentheses = TRUE
-  )
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+# pass preferences individually --------------
+use_rstudio_prefs(
+  always_save_history = FALSE,
+  rainbow_parentheses = TRUE
+)
 
-  # pass a list of preferences -----------------
-  pref_list <-
-    list(always_save_history = FALSE,
-         rainbow_parentheses = TRUE)
+# pass a list of preferences -----------------
+pref_list <-
+  list(always_save_history = FALSE,
+       rainbow_parentheses = TRUE)
 
-  use_rstudio_prefs(!!!pref_list)
-}
+use_rstudio_prefs(!!!pref_list)
+\dontshow{\}) # examplesIf}
 }
 \author{
 Daniel D. Sjoberg
