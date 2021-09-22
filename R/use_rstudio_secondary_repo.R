@@ -10,7 +10,7 @@
 #' in the JSON preferences file (typically, auto set by RStudio),
 #' the `use_rstudio_secondary_repo()` function will set `"country" = "us"`.
 #'
-#' @param ... series of secondary repositories
+#' @param ... series of named secondary repositories, e.g.
 #' `ropensci = "https://ropensci.r-universe.dev"`
 #' @inheritParams use_rstudio_prefs
 #'
@@ -58,15 +58,17 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
     repo_string_as_named_list(list_current_prefs$cran_mirror$secondary)
 
   user_passed_updated_repos <-
-    # if one of the new repos has the same value but new name as a previous
-    # then add a new NULL value to the updates list
-    purrr::map(current_repos[unlist(current_repos) %in% unlist(user_passed_updated_repos)], ~NULL) %>%
-    # set any existing named repos with same name as passed list to NULL
-    purrr::list_modify(
-      !!!purrr::map(current_repos[names(current_repos) %in% names(user_passed_updated_repos)], ~NULL)
+    union(
+      # if one of the new repos has the same value but new name as a previous
+      # then add a new NULL value to the updates list
+      current_repos[unlist(current_repos) %in% unlist(user_passed_updated_repos)] %>% names(),
+      # set any existing named repos with same name as passed list to NULL
+      current_repos[names(current_repos) %in% names(user_passed_updated_repos)] %>% names()
     ) %>%
+    purrr::compact() %>%
+    {stats::setNames(rep_len(list(NULL), length.out = length(.)), .)} %>%
     # add user-defined repos to the list
-    purrr::update_list(!!!purrr::compact(user_passed_updated_repos))
+    purrr::list_modify(!!!purrr::compact(user_passed_updated_repos))
 
   # print updates that will be made --------------------------------------------
   any_update <- pretty_print_updates(current_repos, user_passed_updated_repos)
@@ -109,8 +111,14 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
 #'
 #' @param x secondary repository string from
 #' `"rstudio-prefs.json"` --> `"cran_mirror"` --> `"secondary"`
-#' @keywords internal
-#' @noRd
+#' @export
+#' @returns named list
+#' @author Daniel D. Sjoberg
+#'
+#' @examples
+#' repo_string_as_named_list(
+#'   'ropensci|https://ropensci.r-universe.dev|ddsjoberg|https://ddsjoberg.r-universe.dev'
+#' )
 repo_string_as_named_list <- function(x) {
   if (is.null(x)) return(list())
   # split string by |

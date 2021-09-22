@@ -38,3 +38,4 @@ reference:
   - contents:
       - rstudio_config_path
       - check_min_rstudio_version
+      - repo_string_as_named_list
