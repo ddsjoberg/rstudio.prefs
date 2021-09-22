@@ -1,3 +1,9 @@
+# rstudio.prefs (development version)
+
+* Updates to pretty printing style.
+
+* If no changes will be made, functions are now aborted before saving/backing-up the config files.
+
 # rstudio.prefs 0.1.6
 
 * Exporting utility functions `rstudio_config_path()` and `check_min_rstudio_version()`.

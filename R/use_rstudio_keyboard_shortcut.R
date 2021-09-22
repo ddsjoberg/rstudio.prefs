@@ -12,12 +12,10 @@
 #' @returns NULL, updates RStudio `addins.json` file
 #' @author Daniel D. Sjoberg
 #'
-#' @examples
-#' if (interactive()) {
-#'   use_rstudio_keyboard_shortcut(
-#'     "Ctrl+Shift+/" = "rstudio.prefs::make_path_norm"
-#'   )
-#' }
+#' @examplesIf interactive()
+#' use_rstudio_keyboard_shortcut(
+#'   "Ctrl+Shift+/" = "rstudio.prefs::make_path_norm"
+#' )
 
 use_rstudio_keyboard_shortcut <- function(..., .write_json = TRUE, .backup = TRUE) {
   # check whether fn may be used -----------------------------------------------
@@ -48,7 +46,11 @@ use_rstudio_keyboard_shortcut <- function(..., .write_json = TRUE, .backup = TRU
   i_list_current_shortcuts <- invert_list_names_and_values(list_current_shortcuts)
 
   # print updates that will be made --------------------------------------------
-  pretty_print_updates(i_list_current_shortcuts, i_list_updated_shortcuts)
+  any_update <- pretty_print_updates(i_list_current_shortcuts, i_list_updated_shortcuts)
+  # if no updates, abort function execution
+  if (!any_update) {
+    return(invisible(NULL))
+  }
   # ask user to abort or not
   if (!startsWith(tolower(readline("Would you like to continue? [y/n] ")), "y")) {
     return(invisible(NULL))

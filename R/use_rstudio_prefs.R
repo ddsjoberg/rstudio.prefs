@@ -18,21 +18,19 @@
 #' @returns NULL, updates RStudio `rstudio-prefs.json` file
 #' @author Daniel D. Sjoberg
 #'
-#' @examples
-#' if (interactive()) {
-#'   # pass preferences individually --------------
-#'   use_rstudio_prefs(
-#'     always_save_history = FALSE,
-#'     rainbow_parentheses = TRUE
-#'   )
+#' @examplesIf interactive()
+#' # pass preferences individually --------------
+#' use_rstudio_prefs(
+#'   always_save_history = FALSE,
+#'   rainbow_parentheses = TRUE
+#' )
 #'
-#'   # pass a list of preferences -----------------
-#'   pref_list <-
-#'     list(always_save_history = FALSE,
-#'          rainbow_parentheses = TRUE)
+#' # pass a list of preferences -----------------
+#' pref_list <-
+#'   list(always_save_history = FALSE,
+#'        rainbow_parentheses = TRUE)
 #'
-#'   use_rstudio_prefs(!!!pref_list)
-#' }
+#' use_rstudio_prefs(!!!pref_list)
 
 use_rstudio_prefs <- function(..., .write_json = TRUE, .backup = TRUE) {
   # check whether fn may be used -----------------------------------------------
@@ -56,7 +54,11 @@ use_rstudio_prefs <- function(..., .write_json = TRUE, .backup = TRUE) {
   check_prefs_consistency(list_updated_prefs)
 
   # print updates that will be made --------------------------------------------
-  pretty_print_updates(list_current_prefs, list_updated_prefs)
+  any_update <- pretty_print_updates(list_current_prefs, list_updated_prefs)
+  # if no updates, abort function execution
+  if (!any_update) {
+    return(invisible(NULL))
+  }
   # ask user to abort or not
   if (!startsWith(tolower(readline("Would you like to continue? [y/n] ")), "y")) {
     return(invisible(NULL))

@@ -40,7 +40,7 @@ use_rstudio_prefs(
 )
 #> √ Downloading list of available RStudio settings
 #>
-#> # UPDATES ==============================================
+#> == Updates ==================================================
 #> - always_save_history   [TRUE   --> FALSE]
 #> - save_workspace        [ask    --> never]
 #> - load_workspace        [TRUE   --> FALSE]
@@ -60,7 +60,7 @@ use_rstudio_secondary_repo(
   ropensci = "https://ropensci.r-universe.dev",
   ddsjoberg = "https://ddsjoberg.r-universe.dev"
 )
-#> # UPDATES ==============================================
+#> == Updates ==================================================
 #> - ropensci    [*  --> https://ropensci.r-universe.dev ]
 #> - ddsjoberg   [*  --> https://ddsjoberg.r-universe.dev]
 #> 
@@ -76,7 +76,7 @@ Use `use_rstudio_keyboard_shortcut()` to programmatically add keyboard shortcuts
 use_rstudio_keyboard_shortcut(
   "Ctrl+Shift+/" = "rstudio.prefs::make_path_norm"
 )
-#> # UPDATES ==============================================
+#> == Updates ==================================================
 #> - Ctrl+Shift+/   [*  --> rstudio.prefs::make_path_norm]
 #> 
 #> Would you like to continue? [y/n] y

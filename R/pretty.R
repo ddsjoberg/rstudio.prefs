@@ -44,7 +44,7 @@ pretty_print_updates <- function(old, new) {
 
   # print updates --------------------------------------------------------------
   if (sum(!df_updates$updated) > 0L) {
-    cat("# NO CHANGE ============================================\n")
+    cat(cli::rule("No Changes", line = 2), "\n")
     df_updates %>%
       dplyr::filter(!.data$updated) %>%
       dplyr::mutate(message = paste0(
@@ -61,7 +61,7 @@ pretty_print_updates <- function(old, new) {
   }
 
   if (sum(df_updates$updated) > 0L) {
-    cat("# UPDATES ==============================================\n")
+    cat(cli::rule("Updates", line = 2), "\n")
     df_updates %>%
       dplyr::filter(.data$updated) %>%
       dplyr::mutate(message = paste0(
@@ -76,6 +76,9 @@ pretty_print_updates <- function(old, new) {
       cat()
     cat("\n\n")
   }
+
+  # return a logical indicating if there were any updates
+  return(sum(df_updates$updated) > 0L)
 }
 
 # # CRAN ===============================

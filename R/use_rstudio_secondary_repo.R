@@ -18,13 +18,11 @@
 #' @returns NULL, updates RStudio `rstudio-prefs.json` file
 #' @author Daniel D. Sjoberg
 #'
-#' @examples
-#' if (interactive()) {
-#'   use_rstudio_secondary_repo(
-#'     ropensci = "https://ropensci.r-universe.dev",
-#'     ddsjoberg = "https://ddsjoberg.r-universe.dev"
-#'   )
-#' }
+#' @examplesIf interactive()
+#' use_rstudio_secondary_repo(
+#'   ropensci = "https://ropensci.r-universe.dev",
+#'   ddsjoberg = "https://ddsjoberg.r-universe.dev"
+#' )
 
 use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) {
   # check whether fn may be used -----------------------------------------------
@@ -71,7 +69,11 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
     purrr::update_list(!!!purrr::compact(user_passed_updated_repos))
 
   # print updates that will be made --------------------------------------------
-  pretty_print_updates(current_repos, user_passed_updated_repos)
+  any_update <- pretty_print_updates(current_repos, user_passed_updated_repos)
+  # if no updates, abort function execution
+  if (!any_update) {
+    return(invisible(NULL))
+  }
   # ask user to abort or not
   if (!startsWith(tolower(readline("Would you like to continue? [y/n] ")), "y")) {
     return(invisible(NULL))

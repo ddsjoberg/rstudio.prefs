@@ -34,12 +34,12 @@ in the JSON preferences file (typically, auto set by RStudio),
 the \code{use_rstudio_secondary_repo()} function will set \code{"country" = "us"}.
 }
 \examples{
-if (interactive()) {
-  use_rstudio_secondary_repo(
-    ropensci = "https://ropensci.r-universe.dev",
-    ddsjoberg = "https://ddsjoberg.r-universe.dev"
-  )
-}
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+use_rstudio_secondary_repo(
+  ropensci = "https://ropensci.r-universe.dev",
+  ddsjoberg = "https://ddsjoberg.r-universe.dev"
+)
+\dontshow{\}) # examplesIf}
 }
 \author{
 Daniel D. Sjoberg
