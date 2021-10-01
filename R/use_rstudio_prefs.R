@@ -3,7 +3,7 @@
 #' This function updates the RStudio preferences saved in
 #' the `rstudio-prefs.json` file. A full listing of preferences that may be
 #' modified are listed here
-#' https://docs.rstudio.com/ide/server-pro/session-user-settings.html
+#' \url{https://docs.rstudio.com/ide/server-pro/session-user-settings.html}
 #'
 #' @param ... series of RStudio preferences to update, e.g.
 #' `always_save_history = FALSE, rainbow_parentheses = TRUE`
