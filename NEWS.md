@@ -1,6 +1,8 @@
 # rstudio.prefs (development version)
 
-* Updates to pretty printing style.
+* Updated URL where RStudio preferences are downloaded from in `fetch_rstudio_prefs()`.
+
+* Updated pretty printing style.
 
 * If no changes will be made, functions are now aborted before saving/backing-up the config files.
 

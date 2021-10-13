@@ -17,7 +17,7 @@
 #'
 #' fetch_rstudio_prefs()
 fetch_rstudio_prefs <- function() {
-  url <- "https://docs.rstudio.com/ide/server-pro/session-user-settings.html"
+  url <- "https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html"
   cli::cli_alert_success("Downloading list of available {.field RStudio} settings")
   cat("\n")
   tryCatch(
@@ -43,9 +43,9 @@ fetch_rstudio_prefs <- function() {
       # not sure how to deal with the other types, so ignoring
       dplyr::filter(!is.na(.data$class)),
     error = function(e) {
-      "Error downloading most recent settings from {.field {url}}" %>%
+      "Error downloading most recent settings from {.url {url}}" %>%
         cli::cli_alert_danger()
-      "Using settings downloaded {.val {as.character(attr(df_rstudio_prefs, 'date'))}}" %>%
+      "Using setting listing downloaded {.val {as.character(attr(df_rstudio_prefs, 'date'))}}" %>%
         cli::cli_alert_success()
       cat("\n")
 
