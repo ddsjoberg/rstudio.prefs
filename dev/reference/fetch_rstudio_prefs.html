@@ -139,22 +139,25 @@ TODO: Research how type <code>"object"</code> are passed and include
 in the fetched preferences table.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'>fetch_rstudio_prefs</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BB00;'>✔</span> Downloading list of available <span style='color: #00BB00;'>RStudio</span> settings</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 213 × 6</span>
-#&gt;    property                           description  type  default class is_scalar
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>    
-#&gt; <span style='color: #BCBCBC;'> 1</span> allow_source_columns               Whether to … bool… true    logi… TRUE     
-#&gt; <span style='color: #BCBCBC;'> 2</span> always_enable_rnw_concordance      Whether to … bool… true    logi… TRUE     
-#&gt; <span style='color: #BCBCBC;'> 3</span> always_save_history                Whether to … bool… true    logi… TRUE     
-#&gt; <span style='color: #BCBCBC;'> 4</span> ansi_console_mode                  How to trea… stri… on      char… TRUE     
-#&gt; <span style='color: #BCBCBC;'> 5</span> auto_append_newline                Whether to … bool… false   logi… TRUE     
-#&gt; <span style='color: #BCBCBC;'> 6</span> auto_detect_indentation            Whether to … bool… false   logi… TRUE     
-#&gt; <span style='color: #BCBCBC;'> 7</span> auto_discover_package_dependencies Whether to … bool… true    logi… TRUE     
-#&gt; <span style='color: #BCBCBC;'> 8</span> auto_expand_error_tracebacks       Whether to … bool… false   logi… TRUE     
-#&gt; <span style='color: #BCBCBC;'> 9</span> auto_run_setup_chunk               Whether to … bool… true    logi… TRUE     
-#&gt; <span style='color: #BCBCBC;'>10</span> auto_save_idle_ms                  The idle pe… inte… 1000    inte… TRUE     
-#&gt; <span style='color: #949494;'># … with 203 more rows</span></div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='fu'>fetch_rstudio_prefs</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✔</span> Downloading list of available <span style='color: #00BB00;'>RStudio</span> settings</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 213 × 6</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    property                           description  type  default class is_scalar</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> allow_source_columns               Whether to … bool… true    logi… TRUE     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> always_enable_rnw_concordance      Whether to … bool… true    logi… TRUE     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> always_save_history                Whether to … bool… true    logi… TRUE     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> ansi_console_mode                  How to trea… stri… on      char… TRUE     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> auto_append_newline                Whether to … bool… false   logi… TRUE     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> auto_detect_indentation            Whether to … bool… false   logi… TRUE     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> auto_discover_package_dependencies Whether to … bool… true    logi… TRUE     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> auto_expand_error_tracebacks       Whether to … bool… false   logi… TRUE     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> auto_run_setup_chunk               Whether to … bool… true    logi… TRUE     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> auto_save_idle_ms                  The idle pe… inte… 1000    inte… TRUE     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 203 more rows</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
