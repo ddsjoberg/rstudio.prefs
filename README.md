@@ -26,6 +26,8 @@ devtools::install_github("ddsjoberg/rstudio.prefs")
 ```
 ## Examples
 
+### Set RStudio Preferences
+
 Update the RStudio default preferences.
 Full list of modifiable settings here: https://docs.rstudio.com/ide/server-pro/session-user-settings.html
 
@@ -51,6 +53,7 @@ use_rstudio_prefs(
 #> √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs.json' updated.
 #> * Restart RStudio for updates to take effect.
 ```
+### Add Secondary Repository
 
 Add secondary repositories to the **ROpenSci** and **ddsjoberg** R-Universes.
 This is also helpful for adding secondary RStudio Package Manager repositories.
@@ -69,6 +72,8 @@ use_rstudio_secondary_repo(
 #> √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs.json' updated.
 #> * Restart RStudio for updates to take effect.
 ```
+
+### Add Keyboard Shortcut
 
 Use `use_rstudio_keyboard_shortcut()` to programmatically add keyboard shortcuts for add-ins.
 
