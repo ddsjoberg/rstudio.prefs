@@ -75,7 +75,7 @@ https://docs.rstudio.com/ide/server-pro/session-user-settings.html" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudio.prefs</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.8</span>
       </span>
     </div>
 
@@ -123,7 +123,7 @@ https://docs.rstudio.com/ide/server-pro/session-user-settings.html" />
     <p>This function updates the RStudio preferences saved in
 the <code>rstudio-prefs.json</code> file. A full listing of preferences that may be
 modified are listed here
-https://docs.rstudio.com/ide/server-pro/session-user-settings.html</p>
+<a href='https://docs.rstudio.com/ide/server-pro/session-user-settings.html'>https://docs.rstudio.com/ide/server-pro/session-user-settings.html</a></p>
     </div>
 
     <pre class="usage"><span class='fu'>use_rstudio_prefs</span><span class='op'>(</span><span class='va'>...</span>, .write_json <span class='op'>=</span> <span class='cn'>TRUE</span>, .backup <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
@@ -158,21 +158,21 @@ file before it's updated. Default is <code>TRUE</code></p></td>
     <p>Daniel D. Sjoberg</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='co'># pass preferences individually --------------</span>
-  <span class='fu'>use_rstudio_prefs</span><span class='op'>(</span>
-    always_save_history <span class='op'>=</span> <span class='cn'>FALSE</span>,
-    rainbow_parentheses <span class='op'>=</span> <span class='cn'>TRUE</span>
-  <span class='op'>)</span>
-
-  <span class='co'># pass a list of preferences -----------------</span>
-  <span class='va'>pref_list</span> <span class='op'>&lt;-</span>
-    <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>always_save_history <span class='op'>=</span> <span class='cn'>FALSE</span>,
-         rainbow_parentheses <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-
-  <span class='fu'>use_rstudio_prefs</span><span class='op'>(</span><span class='op'>!</span><span class='op'>!</span><span class='op'>!</span><span class='va'>pref_list</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span> <span class='co'># interactive()</span></span>
+<span class='r-in'><span class='co'># pass preferences individually --------------</span></span>
+<span class='r-in'><span class='fu'>use_rstudio_prefs</span><span class='op'>(</span></span>
+<span class='r-in'>  always_save_history <span class='op'>=</span> <span class='cn'>FALSE</span>,</span>
+<span class='r-in'>  rainbow_parentheses <span class='op'>=</span> <span class='cn'>TRUE</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># pass a list of preferences -----------------</span></span>
+<span class='r-in'><span class='va'>pref_list</span> <span class='op'>&lt;-</span></span>
+<span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>always_save_history <span class='op'>=</span> <span class='cn'>FALSE</span>,</span>
+<span class='r-in'>       rainbow_parentheses <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>use_rstudio_prefs</span><span class='op'>(</span><span class='op'>!</span><span class='op'>!</span><span class='op'>!</span><span class='va'>pref_list</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
