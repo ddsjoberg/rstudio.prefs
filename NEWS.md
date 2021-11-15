@@ -1,3 +1,5 @@
+# rstudio.prefs (development version)
+
 # rstudio.prefs 0.1.8
 
 * Updated URL where RStudio preferences are downloaded from in `fetch_rstudio_prefs()`.

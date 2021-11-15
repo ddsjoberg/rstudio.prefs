@@ -1,6 +1,6 @@
 Package: rstudio.prefs
 Title: Set 'RStudio' Preferences
-Version: 0.1.8
+Version: 0.1.8.9000
 Authors@R: 
     person(given = "Daniel D.",
            family = "Sjoberg",
