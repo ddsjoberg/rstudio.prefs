@@ -1,7 +1,7 @@
 # rstudio.prefs
 
 <!-- badges: start -->
-[![Codecov test coverage](https://codecov.io/gh/ddsjoberg/rstudio.prefs/branch/main/graph/badge.svg)](https://codecov.io/gh/ddsjoberg/rstudio.prefs?branch=main)
+[![Codecov test coverage](https://codecov.io/gh/ddsjoberg/rstudio.prefs/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ddsjoberg/rstudio.prefs?branch=main)
 [![R-CMD-check](https://github.com/ddsjoberg/rstudio.prefs/workflows/R-CMD-check/badge.svg)](https://github.com/ddsjoberg/rstudio.prefs/actions)
 [![CRAN status](https://www.r-pkg.org/badges/version/rstudio.prefs)](https://CRAN.R-project.org/package=rstudio.prefs)
 <!-- badges: end -->

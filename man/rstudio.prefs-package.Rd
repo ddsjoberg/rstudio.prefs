@@ -12,7 +12,7 @@ As of 'RStudio' v1.3, the preferences in the Global Options dialog (and a number
 Useful links:
 \itemize{
   \item \url{https://github.com/ddsjoberg/rstudio.prefs}
-  \item \url{http://www.danieldsjoberg.com/rstudio.prefs/index.html}
+  \item \url{https://www.danieldsjoberg.com/rstudio.prefs/index.html}
   \item Report bugs at \url{https://github.com/ddsjoberg/rstudio.prefs/issues}
 }
 
