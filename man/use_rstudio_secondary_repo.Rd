@@ -4,7 +4,7 @@
 \alias{use_rstudio_secondary_repo}
 \title{Set RStudio Secondary Repository}
 \usage{
-use_rstudio_secondary_repo(..., .write_json = TRUE, .backup = TRUE)
+use_rstudio_secondary_repo(...)
 }
 \arguments{
 \item{...}{series of named secondary repositories, e.g.

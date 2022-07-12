@@ -12,7 +12,6 @@
 #'
 #' @param ... series of named secondary repositories, e.g.
 #' `ropensci = "https://ropensci.r-universe.dev"`
-#' @inheritParams use_rstudio_prefs
 #'
 #' @export
 #' @return NULL, updates RStudio `rstudio-prefs.json` file
@@ -24,7 +23,7 @@
 #'   ddsjoberg = "https://ddsjoberg.r-universe.dev"
 #' )
 
-use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) {
+use_rstudio_secondary_repo <- function(...) {
   # check whether fn may be used -----------------------------------------------
   check_min_rstudio_version("1.3")
   if (!interactive()) {

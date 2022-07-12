@@ -12,7 +12,6 @@
 #' them to file.
 #' @param .backup logical indicating whether to create a back-up of preferences
 #' file before it's updated. Default is `TRUE`
-#' @inheritParams use_rstudio_prefs
 #'
 #' @export
 #' @return NULL, updates RStudio `addins.json` file
