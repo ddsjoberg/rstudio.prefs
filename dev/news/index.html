@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudio.prefs</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.8.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.8.9002</span>
       </span>
     </div>
 
@@ -55,7 +55,10 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="development version" id="rstudioprefs-development-version">rstudio.prefs (development version)<a class="anchor" aria-label="anchor" href="#rstudioprefs-development-version"></a></h2>
-<ul><li>Fix for <code><a href="../reference/use_rstudio_secondary_repo.html">use_rstudio_secondary_repo()</a></code> when it is used to set the first secondary repository. (<a href="https://github.com/ddsjoberg/rstudio.prefs/issues/14" class="external-link">#14</a>)</li></ul></div>
+<ul><li><p>Fix for <code><a href="../reference/use_rstudio_secondary_repo.html">use_rstudio_secondary_repo()</a></code> when it is used to set the first secondary repository. (<a href="https://github.com/ddsjoberg/rstudio.prefs/issues/14" class="external-link">#14</a>)</p></li>
+<li><p>Updated <code><a href="../reference/use_rstudio_prefs.html">use_rstudio_prefs()</a></code> and <code><a href="../reference/use_rstudio_secondary_repo.html">use_rstudio_secondary_repo()</a></code> to use the {rstudioapi} package to read and write RStudio preferences instead of manually manipulating the preferences JSON file. (<a href="https://github.com/ddsjoberg/rstudio.prefs/issues/12" class="external-link">#12</a>)</p></li>
+<li><p>Corrected the folder location of the app data folder from <code>RStudio</code> to <code>rstudio</code> on Unix. (<a href="https://github.com/ddsjoberg/rstudio.prefs/issues/11" class="external-link">#11</a>)</p></li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.1.8" id="rstudioprefs-018">rstudio.prefs 0.1.8<small>2021-11-15</small><a class="anchor" aria-label="anchor" href="#rstudioprefs-018"></a></h2>
 <ul><li><p>Updated URL where RStudio preferences are downloaded from in <code><a href="../reference/fetch_rstudio_prefs.html">fetch_rstudio_prefs()</a></code>.</p></li>

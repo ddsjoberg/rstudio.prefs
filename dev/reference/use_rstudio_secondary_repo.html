@@ -20,7 +20,7 @@ passed by the user, the name will be updated in the JSON file."><meta name="robo
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudio.prefs</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.8.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.8.9002</span>
       </span>
     </div>
 
@@ -65,7 +65,7 @@ passed by the user, the name will be updated in the JSON file.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">use_rstudio_secondary_repo</span><span class="op">(</span><span class="va">...</span>, .write_json <span class="op">=</span> <span class="cn">TRUE</span>, .backup <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">use_rstudio_secondary_repo</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -73,18 +73,6 @@ passed by the user, the name will be updated in the JSON file.</p>
     <dl><dt>...</dt>
 <dd><p>series of named secondary repositories, e.g.
 <code>ropensci = "https://ropensci.r-universe.dev"</code></p></dd>
-
-
-<dt>.write_json</dt>
-<dd><p>logical indicating whether to update and overwrite
-the existing JSON file of options. Default is <code>TRUE</code>. When <code>FALSE</code>,
-the function will return a list of all options, instead of writing
-them to file.</p></dd>
-
-
-<dt>.backup</dt>
-<dd><p>logical indicating whether to create a back-up of preferences
-file before it's updated. Default is <code>TRUE</code></p></dd>
 
 </dl></div>
     <div id="value">
