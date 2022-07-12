@@ -34,10 +34,10 @@ check_min_rstudio_version <- function(version) {
 #' }
 rstudio_config_path <- function(...) {
   if (is_windows()) {
-    base <- rappdirs::user_config_dir("RStudio", appauthor = NULL)
+    base <- rappdirs::user_config_dir("rstudio", appauthor = NULL)
   }
   else {
-    base <- rappdirs::user_config_dir("RStudio", os = "unix")
+    base <- rappdirs::user_config_dir("rstudio", os = "unix")
   }
   fs::path(base, ...)
 }

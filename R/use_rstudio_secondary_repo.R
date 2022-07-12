@@ -38,13 +38,13 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
   if (!rlang::is_named(user_passed_updated_repos)) {
     rlang::abort("Each argument must be named.")
   }
-  list_current_prefs <-
-    jsonlite::fromJSON(rstudio_config_path("rstudio-prefs.json"))
+  list_current_cran_mirror <-
+    rstudioapi::readRStudioPreference("cran_mirror", default = NULL)
 
   # if no secondary repos exist, create the structure for them -----------------
-  if (is.null(list_current_prefs$cran_mirror)) {
+  if (is.null(list_current_cran_mirror)) {
     # i took these values from my own settings...may need to be modified for broader use
-    list_current_prefs$cran_mirror <-
+    list_current_cran_mirror <-
       list("name" = "Global (CDN)",
            "host" = "RStudio",
            "url" = "https://cran.rstudio.com/",
@@ -55,7 +55,7 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
 
   # parse the secondary repo string --------------------------------------------
   current_repos <-
-    repo_string_as_named_list(list_current_prefs$cran_mirror$secondary)
+    repo_string_as_named_list(list_current_cran_mirror$secondary)
 
   user_passed_updated_repos <-
     union(
@@ -82,24 +82,18 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
   }
 
   # create final list of repos -------------------------------------------------
-  list_current_prefs$cran_mirror$secondary <-
+  list_current_cran_mirror$secondary <-
     current_repos %>%
     purrr::update_list(!!!user_passed_updated_repos) %>%
     purrr::imap_chr(~paste0(.y, "|", .x)) %>%
     paste(collapse = "|")
 
-  # write updated JSON file ----------------------------------------------------
-  if (isTRUE(.write_json)) {
-    write_json(
-      list_current_prefs,
-      path = rstudio_config_path("rstudio-prefs.json"),
-      .backup = .backup
-    )
-    return(invisible(NULL))
-  }
-  else {
-    return(list_current_prefs)
-  }
+  # update preferences ---------------------------------------------------------
+  rstudioapi::writeRStudioPreference(
+    name = "cran_mirror",
+    value = list_current_cran_mirror
+  )
+  return(invisible(list_current_cran_mirror))
 }
 
 

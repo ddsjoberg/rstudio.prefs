@@ -4,19 +4,11 @@
 \alias{use_rstudio_prefs}
 \title{Set RStudio Preferences}
 \usage{
-use_rstudio_prefs(..., .write_json = TRUE, .backup = TRUE)
+use_rstudio_prefs(...)
 }
 \arguments{
 \item{...}{series of RStudio preferences to update, e.g.
 \verb{always_save_history = FALSE, rainbow_parentheses = TRUE}}
-
-\item{.write_json}{logical indicating whether to update and overwrite
-the existing JSON file of options. Default is \code{TRUE}. When \code{FALSE},
-the function will return a list of all options, instead of writing
-them to file.}
-
-\item{.backup}{logical indicating whether to create a back-up of preferences
-file before it's updated. Default is \code{TRUE}}
 }
 \value{
 NULL, updates RStudio \code{rstudio-prefs.json} file
