@@ -2,6 +2,10 @@
 
 * Fix for `use_rstudio_secondary_repo()` when it is used to set the first secondary repository. (#14)
 
+* Updated `use_rstudio_prefs()` and `use_rstudio_secondary_repo()` to use the {rstudioapi} package to read and write RStudio preferences instead of manually manipulating the preferences JSON file. (#12)
+
+* Corrected the folder location of the app data folder from `RStudio` to `rstudio` on Unix. (#11)
+
 # rstudio.prefs 0.1.8
 
 * Updated URL where RStudio preferences are downloaded from in `fetch_rstudio_prefs()`.
