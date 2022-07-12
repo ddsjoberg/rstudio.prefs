@@ -1,5 +1,7 @@
 # rstudio.prefs (development version)
 
+* Fix for `use_rstudio_secondary_repo()` when it is used to set the first secondary repository. (#14)
+
 # rstudio.prefs 0.1.8
 
 * Updated URL where RStudio preferences are downloaded from in `fetch_rstudio_prefs()`.
