@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">rstudio.prefs</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.8.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.8.9001</span>
       </span>
     </div>
 
@@ -59,7 +61,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/ddsjoberg/rstudio.prefs">
+  <a href="https://github.com/ddsjoberg/rstudio.prefs" class="external-link">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -76,85 +78,84 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="rstudioprefs" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#rstudioprefs" class="anchor"></a>rstudio.prefs</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="rstudioprefs">rstudio.prefs<a class="anchor" aria-label="anchor" href="#rstudioprefs"></a>
+</h1></div>
 <!-- badges: start -->
-
 <p>As of RStudio v1.3, the preferences in the Global Options dialog (and a number of other preferences that aren’t) are now saved in simple, plain-text JSON files. The {rstudio.prefs} package provides an interface for working with these RStudio JSON preference files to easily make modifications without using the point-and-click option menus. This is particularly helpful when working on teams to ensure a <strong>unified experience</strong> across machines and utilizing settings for <strong>best practices</strong>.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>Install {rstudio.prefs} from CRAN with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rstudio.prefs"</span><span class="op">)</span></code></pre></div>
-<p>Install the development version of {rstudio.prefs} from <a href="https://github.com/ddsjoberg/rstudio.prefs">GitHub</a> with:</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rstudio.prefs"</span><span class="op">)</span></span></code></pre></div>
+<p>Install the development version of {rstudio.prefs} from <a href="https://github.com/ddsjoberg/rstudio.prefs" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages('devtools')</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ddsjoberg/rstudio.prefs"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages('devtools')</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ddsjoberg/rstudio.prefs"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="examples" class="section level2">
-<h2 class="hasAnchor">
-<a href="#examples" class="anchor"></a>Examples</h2>
-<div id="set-rstudio-preferences" class="section level3">
-<h3 class="hasAnchor">
-<a href="#set-rstudio-preferences" class="anchor"></a>Set RStudio Preferences</h3>
-<p>Update the RStudio default preferences. Full list of modifiable settings here: <a href="https://docs.rstudio.com/ide/server-pro/session-user-settings.html" class="uri">https://docs.rstudio.com/ide/server-pro/session-user-settings.html</a></p>
+<div class="section level2">
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
+</h2>
+<div class="section level3">
+<h3 id="set-rstudio-preferences">Set RStudio Preferences<a class="anchor" aria-label="anchor" href="#set-rstudio-preferences"></a>
+</h3>
+<p>Update the RStudio default preferences. Full list of modifiable settings here: <a href="https://docs.rstudio.com/ide/server-pro/session-user-settings.html" class="external-link uri">https://docs.rstudio.com/ide/server-pro/session-user-settings.html</a></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ddsjoberg/rstudio.prefs">rstudio.prefs</a></span><span class="op">)</span>
-
-<span class="fu"><a href="reference/use_rstudio_prefs.html">use_rstudio_prefs</a></span><span class="op">(</span>
-  always_save_history <span class="op">=</span> <span class="cn">FALSE</span>,
-  save_workspace <span class="op">=</span> <span class="st">"never"</span>,
-  load_workspace <span class="op">=</span> <span class="cn">FALSE</span>,
-  rainbow_parentheses <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-<span class="co">#&gt; √ Downloading list of available RStudio settings</span>
-<span class="co">#&gt;</span>
-<span class="co">#&gt; == Updates ==================================================</span>
-<span class="co">#&gt; - always_save_history   [TRUE   --&gt; FALSE]</span>
-<span class="co">#&gt; - save_workspace        [ask    --&gt; never]</span>
-<span class="co">#&gt; - load_workspace        [TRUE   --&gt; FALSE]</span>
-<span class="co">#&gt; - rainbow_parentheses   [FALSE  --&gt; TRUE ]</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Would you like to continue? [y/n] y</span>
-<span class="co">#&gt; √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs 2021-06-20.json' saved as backup.</span>
-<span class="co">#&gt; √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs.json' updated.</span>
-<span class="co">#&gt; * Restart RStudio for updates to take effect.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ddsjoberg/rstudio.prefs" class="external-link">rstudio.prefs</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/use_rstudio_prefs.html">use_rstudio_prefs</a></span><span class="op">(</span></span>
+<span>  always_save_history <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  save_workspace <span class="op">=</span> <span class="st">"never"</span>,</span>
+<span>  load_workspace <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  rainbow_parentheses <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; √ Downloading list of available RStudio settings</span></span>
+<span><span class="co">#&gt;</span></span>
+<span><span class="co">#&gt; == Updates ==================================================</span></span>
+<span><span class="co">#&gt; - always_save_history   [TRUE   --&gt; FALSE]</span></span>
+<span><span class="co">#&gt; - save_workspace        [ask    --&gt; never]</span></span>
+<span><span class="co">#&gt; - load_workspace        [TRUE   --&gt; FALSE]</span></span>
+<span><span class="co">#&gt; - rainbow_parentheses   [FALSE  --&gt; TRUE ]</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Would you like to continue? [y/n] y</span></span>
+<span><span class="co">#&gt; √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs 2021-06-20.json' saved as backup.</span></span>
+<span><span class="co">#&gt; √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs.json' updated.</span></span>
+<span><span class="co">#&gt; * Restart RStudio for updates to take effect.</span></span></code></pre></div>
 </div>
-<div id="add-secondary-repository" class="section level3">
-<h3 class="hasAnchor">
-<a href="#add-secondary-repository" class="anchor"></a>Add Secondary Repository</h3>
+<div class="section level3">
+<h3 id="add-secondary-repository">Add Secondary Repository<a class="anchor" aria-label="anchor" href="#add-secondary-repository"></a>
+</h3>
 <p>Add secondary repositories to the <strong>ROpenSci</strong> and <strong>ddsjoberg</strong> R-Universes. This is also helpful for adding secondary RStudio Package Manager repositories.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/use_rstudio_secondary_repo.html">use_rstudio_secondary_repo</a></span><span class="op">(</span>
-  ropensci <span class="op">=</span> <span class="st">"https://ropensci.r-universe.dev"</span>,
-  ddsjoberg <span class="op">=</span> <span class="st">"https://ddsjoberg.r-universe.dev"</span>
-<span class="op">)</span>
-<span class="co">#&gt; == Updates ==================================================</span>
-<span class="co">#&gt; - ropensci    [*  --&gt; https://ropensci.r-universe.dev ]</span>
-<span class="co">#&gt; - ddsjoberg   [*  --&gt; https://ddsjoberg.r-universe.dev]</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Would you like to continue? [y/n] y</span>
-<span class="co">#&gt; √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs 2021-06-20.json' saved as backup.</span>
-<span class="co">#&gt; √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs.json' updated.</span>
-<span class="co">#&gt; * Restart RStudio for updates to take effect.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/use_rstudio_secondary_repo.html">use_rstudio_secondary_repo</a></span><span class="op">(</span></span>
+<span>  ropensci <span class="op">=</span> <span class="st">"https://ropensci.r-universe.dev"</span>,</span>
+<span>  ddsjoberg <span class="op">=</span> <span class="st">"https://ddsjoberg.r-universe.dev"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; == Updates ==================================================</span></span>
+<span><span class="co">#&gt; - ropensci    [*  --&gt; https://ropensci.r-universe.dev ]</span></span>
+<span><span class="co">#&gt; - ddsjoberg   [*  --&gt; https://ddsjoberg.r-universe.dev]</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Would you like to continue? [y/n] y</span></span>
+<span><span class="co">#&gt; √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs 2021-06-20.json' saved as backup.</span></span>
+<span><span class="co">#&gt; √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/rstudio-prefs.json' updated.</span></span>
+<span><span class="co">#&gt; * Restart RStudio for updates to take effect.</span></span></code></pre></div>
 </div>
-<div id="add-keyboard-shortcut" class="section level3">
-<h3 class="hasAnchor">
-<a href="#add-keyboard-shortcut" class="anchor"></a>Add Keyboard Shortcut</h3>
+<div class="section level3">
+<h3 id="add-keyboard-shortcut">Add Keyboard Shortcut<a class="anchor" aria-label="anchor" href="#add-keyboard-shortcut"></a>
+</h3>
 <p>Use <code><a href="reference/use_rstudio_keyboard_shortcut.html">use_rstudio_keyboard_shortcut()</a></code> to programmatically add keyboard shortcuts for add-ins.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/use_rstudio_keyboard_shortcut.html">use_rstudio_keyboard_shortcut</a></span><span class="op">(</span>
-  <span class="st">"Ctrl+Shift+/"</span> <span class="op">=</span> <span class="st">"rstudio.prefs::make_path_norm"</span>
-<span class="op">)</span>
-<span class="co">#&gt; == Updates ==================================================</span>
-<span class="co">#&gt; - Ctrl+Shift+/   [*  --&gt; rstudio.prefs::make_path_norm]</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Would you like to continue? [y/n] y</span>
-<span class="co">#&gt; √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/keybindings/addins 2021-06-20.json' saved as backup.</span>
-<span class="co">#&gt; √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/keybindings/addins.json' updated.</span>
-<span class="co">#&gt; * Restart RStudio for updates to take effect.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/use_rstudio_keyboard_shortcut.html">use_rstudio_keyboard_shortcut</a></span><span class="op">(</span></span>
+<span>  <span class="st">"Ctrl+Shift+/"</span> <span class="op">=</span> <span class="st">"rstudio.prefs::make_path_norm"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; == Updates ==================================================</span></span>
+<span><span class="co">#&gt; - Ctrl+Shift+/   [*  --&gt; rstudio.prefs::make_path_norm]</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Would you like to continue? [y/n] y</span></span>
+<span><span class="co">#&gt; √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/keybindings/addins 2021-06-20.json' saved as backup.</span></span>
+<span><span class="co">#&gt; √ File 'C:/Users/sjobergd/AppData/Roaming/RStudio/keybindings/addins.json' updated.</span></span>
+<span><span class="co">#&gt; * Restart RStudio for updates to take effect.</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -162,49 +163,59 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=rstudio.prefs">https://​cloud.r-project.org/​package=rstudio.prefs</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/ddsjoberg/rstudio.prefs/">https://​github.com/​ddsjoberg/​rstudio.prefs/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/ddsjoberg/rstudio.prefs/issues">https://​github.com/​ddsjoberg/​rstudio.prefs/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=rstudio.prefs" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/ddsjoberg/rstudio.prefs/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/ddsjoberg/rstudio.prefs/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small>GPL (&gt;= 3)</small></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>
-<a href="http://www.danieldsjoberg.com/">Daniel D. Sjoberg</a> <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0003-0862-2018" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html#citation">Citing rstudio.prefs</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="https://app.codecov.io/gh/ddsjoberg/rstudio.prefs?branch=main"><img src="https://codecov.io/gh/ddsjoberg/rstudio.prefs/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://github.com/ddsjoberg/rstudio.prefs/actions"><img src="https://github.com/ddsjoberg/rstudio.prefs/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://CRAN.R-project.org/package=rstudio.prefs"><img src="https://www.r-pkg.org/badges/version/rstudio.prefs" alt="CRAN status"></a></li>
+<li>
+<a href="http://www.danieldsjoberg.com/" class="external-link">Daniel D. Sjoberg</a> <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0003-0862-2018" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://app.codecov.io/gh/ddsjoberg/rstudio.prefs?branch=main" class="external-link"><img src="https://codecov.io/gh/ddsjoberg/rstudio.prefs/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/ddsjoberg/rstudio.prefs/actions" class="external-link"><img src="https://github.com/ddsjoberg/rstudio.prefs/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://CRAN.R-project.org/package=rstudio.prefs" class="external-link"><img src="https://www.r-pkg.org/badges/version/rstudio.prefs" alt="CRAN status"></a></li>
+</ul>
 </div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="http://www.danieldsjoberg.com/">Daniel D. Sjoberg</a>.</p>
+  <p></p>
+<p>Developed by <a href="http://www.danieldsjoberg.com/" class="external-link">Daniel D. Sjoberg</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer>
@@ -212,6 +223,8 @@
 
   
 
+
+  
 
   </body>
 </html>
