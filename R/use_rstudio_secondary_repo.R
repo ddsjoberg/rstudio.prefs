@@ -15,7 +15,7 @@
 #' @inheritParams use_rstudio_prefs
 #'
 #' @export
-#' @returns NULL, updates RStudio `rstudio-prefs.json` file
+#' @return NULL, updates RStudio `rstudio-prefs.json` file
 #' @author Daniel D. Sjoberg
 #'
 #' @examplesIf interactive()
@@ -106,7 +106,7 @@ use_rstudio_secondary_repo <- function(..., .write_json = TRUE, .backup = TRUE) 
 #' @param x secondary repository string from
 #' `"rstudio-prefs.json"` --> `"cran_mirror"` --> `"secondary"`
 #' @export
-#' @returns named list
+#' @return named list
 #' @author Daniel D. Sjoberg
 #'
 #' @examples

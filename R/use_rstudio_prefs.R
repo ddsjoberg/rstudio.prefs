@@ -9,7 +9,7 @@
 #' `always_save_history = FALSE, rainbow_parentheses = TRUE`
 #'
 #' @export
-#' @returns NULL, updates RStudio `rstudio-prefs.json` file
+#' @return NULL, updates RStudio `rstudio-prefs.json` file
 #' @author Daniel D. Sjoberg
 #'
 #' @examplesIf interactive()
