@@ -3,7 +3,10 @@ pretty_print_updates <- function(old, new) {
   df_updates <-
     # data frame of old prefs
     tibble::tibble(
-      pref = names(old) %>% intersect(names(new)),
+      pref =
+        names(old) %>%
+        intersect(names(new)) %||%
+        character(0), # if no overlap with old and new, drop in a placeholder,
       old_value =
         old[names(old) %>% intersect(names(new))] %>%
         unname() %>% lapply(as.character) %>% unlist() %||%

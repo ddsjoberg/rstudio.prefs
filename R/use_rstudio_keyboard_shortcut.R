@@ -9,7 +9,7 @@
 #' @inheritParams use_rstudio_prefs
 #'
 #' @export
-#' @returns NULL, updates RStudio `addins.json` file
+#' @return NULL, updates RStudio `addins.json` file
 #' @author Daniel D. Sjoberg
 #'
 #' @examplesIf interactive()
@@ -91,7 +91,6 @@ use_rstudio_keyboard_shortcut <- function(..., .write_json = TRUE, .backup = TRU
 #' have been switched.
 #' @param x named list
 #'
-#' @return
 #' @keywords internal
 #' @noRd
 invert_list_names_and_values <- function(x) {

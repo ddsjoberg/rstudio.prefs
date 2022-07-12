@@ -17,7 +17,7 @@
 #' * NOTE: It is possible to override a previously specified key combination with this selection.
 #' @seealso [fs::path_norm]
 #' @export
-#' @returns normalized path string
+#' @return normalized path string
 #' @examples
 #' if (interactive()) {
 #'   # set a keyboard shortcut for path normalization
