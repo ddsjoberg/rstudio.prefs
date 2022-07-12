@@ -6,7 +6,12 @@
 #' @param ... series of RStudio keyboard shortcuts to update. The argument
 #' name is the keyboard shortcut, and the value is a string of the function
 #' name that will execute. See examples.
-#' @inheritParams use_rstudio_prefs
+#' @param .write_json logical indicating whether to update and overwrite
+#' the existing JSON file of options. Default is `TRUE`. When `FALSE`,
+#' the function will return a list of all options, instead of writing
+#' them to file.
+#' @param .backup logical indicating whether to create a back-up of preferences
+#' file before it's updated. Default is `TRUE`
 #'
 #' @export
 #' @return NULL, updates RStudio `addins.json` file

@@ -7,12 +7,6 @@
 #'
 #' @param ... series of RStudio preferences to update, e.g.
 #' `always_save_history = FALSE, rainbow_parentheses = TRUE`
-#' @param .write_json logical indicating whether to update and overwrite
-#' the existing JSON file of options. Default is `TRUE`. When `FALSE`,
-#' the function will return a list of all options, instead of writing
-#' them to file.
-#' @param .backup logical indicating whether to create a back-up of preferences
-#' file before it's updated. Default is `TRUE`
 #'
 #' @export
 #' @return NULL, updates RStudio `rstudio-prefs.json` file
@@ -32,7 +26,7 @@
 #'
 #' use_rstudio_prefs(!!!pref_list)
 
-use_rstudio_prefs <- function(..., .write_json = TRUE, .backup = TRUE) {
+use_rstudio_prefs <- function(...) {
   # check whether fn may be used -----------------------------------------------
   check_min_rstudio_version("1.3")
   if (!interactive()) {
@@ -48,7 +42,10 @@ use_rstudio_prefs <- function(..., .write_json = TRUE, .backup = TRUE) {
   }
 
   list_current_prefs <-
-    jsonlite::fromJSON(rstudio_config_path("rstudio-prefs.json"))
+    names(list_updated_prefs) %>%
+    purrr::map(~rstudioapi::readRStudioPreference(.x, default = NULL)) %>%
+    stats::setNames(names(list_updated_prefs)) %>%
+    purrr::compact()
 
   # check each element of list is length one -----------------------------------
   check_prefs_consistency(list_updated_prefs)
@@ -64,22 +61,10 @@ use_rstudio_prefs <- function(..., .write_json = TRUE, .backup = TRUE) {
     return(invisible(NULL))
   }
 
-  # update prefs, convert to JSON, and save file -------------------------------
-  final_prefs <-
-    list_current_prefs %>%
-    purrr::update_list(!!!list_updated_prefs)
-
-  if (isTRUE(.write_json)) {
-    write_json(
-      final_prefs,
-      path = rstudio_config_path("rstudio-prefs.json"),
-      .backup = .backup
-    )
-    return(invisible(NULL))
-  }
-  else {
-    return(final_prefs)
-  }
+  # update prefs ---------------------------------------------------------------
+  list_updated_prefs %>%
+    purrr::iwalk(~rstudioapi::writeRStudioPreference(name = .y, value = .x))
+  return(invisible(list_updated_prefs))
 }
 
 
