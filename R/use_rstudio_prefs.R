@@ -15,7 +15,7 @@
 #' file before it's updated. Default is `TRUE`
 #'
 #' @export
-#' @returns NULL, updates RStudio `rstudio-prefs.json` file
+#' @return NULL, updates RStudio `rstudio-prefs.json` file
 #' @author Daniel D. Sjoberg
 #'
 #' @examplesIf interactive()
