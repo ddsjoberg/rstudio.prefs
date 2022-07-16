@@ -1,6 +1,6 @@
 ## Test environments
 
-* GitHub Actions (ubuntu-16.04): devel, release, oldrel, 3.6, 3.5, 3.4
+* GitHub Actions (ubuntu-16.04): devel, release, oldrel-1, oldrel-2, oldrel-3, oldrel-4
 * GitHub Actions (windows): release
 * GitHub Actions (macOS): release
 * win-builder: devel
