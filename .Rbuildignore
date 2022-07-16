@@ -8,6 +8,8 @@
 ^\.github$
 ^_pkgdown\.yml$
 ^docs$
+^revdep$
 ^pkgdown$
 ^cran-comments\.md$
 ^CRAN-RELEASE$
+^CRAN-SUBMISSION$
