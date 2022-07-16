@@ -1,3 +1,5 @@
+# rstudio.prefs (development version)
+
 # rstudio.prefs 0.1.9
 
 * Fix for `use_rstudio_secondary_repo()` when it is used to set the first secondary repository. (#14)
